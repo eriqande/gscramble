@@ -85,14 +85,16 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">gscramble</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.2 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.4.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 1.0.1</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble </span> 3.1.8     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr  </span> 1.1.0</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr  </span> 1.3.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr</span> 1.5.0</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.3     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats</span> 1.0.0</span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.4.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.1     </span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use the conflicted package (<span style="color: #0000BB; font-style: italic;">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="input-data">Input Data<a class="anchor" aria-label="anchor" href="#input-data"></a>
 </h2>
@@ -752,22 +754,22 @@ produced above.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Segments</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 14</span></span></span>
-<span><span class="co">#&gt;    chrom_f   gpp index chrom ped_sampl…¹ samp_…² gamet…³ gamet…⁴ pop_o…⁵ rs_fo…⁶</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 12          1     1 12    5                 1       1 &lt;dbl&gt;   p1            1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 17          1     1 17    5                 1       1 &lt;dbl&gt;   p1            1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 18          1     1 18    5                 1       1 &lt;dbl&gt;   p1            2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 12          1     1 12    5                 1       2 &lt;dbl&gt;   p2            1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 17          1     1 17    5                 1       2 &lt;dbl&gt;   p2            1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 18          1     1 18    5                 1       2 &lt;dbl&gt;   p2            2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 12          1     1 12    6                 1       1 &lt;dbl&gt;   p1            4</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 17          1     1 17    6                 1       1 &lt;dbl&gt;   p1            4</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 18          1     1 18    6                 1       1 &lt;dbl&gt;   p1            3</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 12          1     1 12    6                 1       2 &lt;dbl&gt;   p1            2</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 26 more rows, 4 more variables: start &lt;dbl&gt;, end &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   group_origin &lt;chr&gt;, sim_level_founder_haplo &lt;int&gt;, and abbreviated variable</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   names ¹​ped_sample_id, ²​samp_index, ³​gamete_index, ⁴​gamete_segments,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ⁵​pop_origin, ⁶​rs_founder_haplo</span></span></span></code></pre></div>
+<span><span class="co">#&gt;    chrom_f   gpp index chrom ped_sample_id samp_index gamete_index</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 12          1     1 12    5                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 17          1     1 17    5                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 18          1     1 18    5                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 12          1     1 12    5                      1            2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 17          1     1 17    5                      1            2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 18          1     1 18    5                      1            2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 12          1     1 12    6                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 17          1     1 17    6                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 18          1     1 18    6                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 12          1     1 12    6                      1            2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 26 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 7 more variables: gamete_segments &lt;list&gt;, pop_origin &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   rs_founder_haplo &lt;int&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;, group_origin &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   sim_level_founder_haplo &lt;int&gt;</span></span></span></code></pre></div>
 <p>The table is a little wide, so we will show the first half of the
 columns and then the second half.</p>
 <p>First half</p>
@@ -775,20 +777,20 @@ columns and then the second half.</p>
 <code class="sourceCode R"><span><span class="va">Segments</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">gpp</span><span class="op">:</span><span class="va">pop_origin</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 8</span></span></span>
-<span><span class="co">#&gt;      gpp index chrom ped_sample_id samp_index gamete_index gamete_segm…¹ pop_o…²</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1     1 12    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p1     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     1     1 17    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p1     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     1     1 18    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p1     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     1     1 12    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p2     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     1     1 17    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p2     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     1     1 18    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p2     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     1     1 12    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p1     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     1     1 17    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p1     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     1     1 18    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>     p1     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>     1     1 12    6                      1            2 <span style="color: #949494;">&lt;dbl [3]&gt;</span>     p1     </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 26 more rows, and abbreviated variable names ¹​gamete_segments,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ²​pop_origin</span></span></span></code></pre></div>
+<span><span class="co">#&gt;      gpp index chrom ped_sample_id samp_index gamete_index gamete_segments</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1     1 12    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     1     1 17    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     1     1 18    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     1     1 12    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     1     1 17    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     1     1 18    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     1     1 12    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     1     1 17    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     1     1 18    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>     1     1 12    6                      1            2 <span style="color: #949494;">&lt;dbl [3]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 26 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: pop_origin &lt;chr&gt;</span></span></span></code></pre></div>
 <p>Second half</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Segments</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -806,7 +808,7 @@ columns and then the second half.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>                4     0 69<span style="text-decoration: underline;">302</span>804  Pop1        </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>                3     0 61<span style="text-decoration: underline;">201</span>108  Pop1        </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>                2     0 17<span style="text-decoration: underline;">363</span>020. Pop1        </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 26 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 26 more rows</span></span></span></code></pre></div>
 <div class="section level3">
 <h3 id="visualizing-those-chunks-of-genome">Visualizing those chunks of genome<a class="anchor" aria-label="anchor" href="#visualizing-those-chunks-of-genome"></a>
 </h3>
@@ -1091,8 +1093,8 @@ are gzipped with the <code>.gz</code> extension.</p>
 <span>  Geno <span class="op">=</span> <span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span>,</span>
 <span>  prefix <span class="op">=</span> <span class="va">tfile</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; pedfile written to /tmp/Rtmp3EvLZC/file1949524531dd.ped</span></span>
-<span><span class="co">#&gt; mapfile written to /tmp/Rtmp3EvLZC/file1949524531dd.map</span></span>
+<span><span class="co">#&gt; pedfile written to /tmp/RtmpnzHEhV/file2003fee689c.ped</span></span>
+<span><span class="co">#&gt; mapfile written to /tmp/RtmpnzHEhV/file2003fee689c.map</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
   </div>

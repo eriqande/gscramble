@@ -115,23 +115,22 @@ other columns in the output tibble, see the documentation for <code><a href="seg
 <span class="r-in"><span><span class="va">fh</span> <span class="op">&lt;-</span> <span class="fu">sim_level_founder_haplos</span><span class="op">(</span><span class="va">simSegs</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">fh</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 52 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    chrom_f   gpp index chrom ped_sampl…¹ samp_…² gamet…³ gamet…⁴ pop_o…⁵ rs_fo…⁶</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 12          1     1 12    4                 1       1 &lt;dbl&gt;   A             2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 17          1     1 17    4                 1       1 &lt;dbl&gt;   A             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 18          1     1 18    4                 1       1 &lt;dbl&gt;   A             2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 12          1     1 12    4                 1       2 &lt;dbl&gt;   B             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 17          1     1 17    4                 1       2 &lt;dbl&gt;   B             2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 18          1     1 18    4                 1       2 &lt;dbl&gt;   B             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 12          1     1 12    5                 1       1 &lt;dbl&gt;   A             3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 17          1     1 17    5                 1       1 &lt;dbl&gt;   A             3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 18          1     1 18    5                 1       1 &lt;dbl&gt;   A             3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 12          1     1 12    5                 1       2 &lt;dbl&gt;   A             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 42 more rows, 5 more variables: start &lt;dbl&gt;, end &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   group_origin &lt;chr&gt;, sim_level_founder_haplo.x &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sim_level_founder_haplo.y &lt;int&gt;, and abbreviated variable names</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ¹​ped_sample_id, ²​samp_index, ³​gamete_index, ⁴​gamete_segments, ⁵​pop_origin,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁶​rs_founder_haplo</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    chrom_f   gpp index chrom ped_sample_id samp_index gamete_index</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 12          1     1 12    4                      1            1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 17          1     1 17    4                      1            1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 18          1     1 18    4                      1            1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 12          1     1 12    4                      1            2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 17          1     1 17    4                      1            2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 18          1     1 18    4                      1            2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 12          1     1 12    5                      1            1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 17          1     1 17    5                      1            1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 18          1     1 18    5                      1            1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 12          1     1 12    5                      1            2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 42 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: gamete_segments &lt;list&gt;, pop_origin &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rs_founder_haplo &lt;int&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;, group_origin &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sim_level_founder_haplo.x &lt;int&gt;, sim_level_founder_haplo.y &lt;int&gt;</span></span>
 </code></pre></div>
     </div>
   </div>
