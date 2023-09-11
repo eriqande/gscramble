@@ -69,7 +69,7 @@ multiple chromosomes.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">recomb_point</span><span class="op">(</span><span class="va">M</span>, at_least_one <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">recomb_point</span><span class="op">(</span><span class="va">M</span>, at_least_one <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -110,18 +110,18 @@ it is so unlikely that a recombination will ever occur in the same place.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># for an example, create a tibble of bins, roughly 1 Mb each,</span></span>
-<span class="r-in"><span class="co"># on a chromosome of length roughly 150 Mb, and we assign each</span></span>
-<span class="r-in"><span class="co"># a rec_prob around 0.01</span></span>
-<span class="r-in"><span class="va">ends</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1e6</span>, <span class="fl">150e6</span>, by <span class="op">=</span> <span class="fl">1e6</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ends</span> <span class="op">&lt;-</span> <span class="va">ends</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">ends</span><span class="op">)</span>, min <span class="op">=</span> <span class="op">-</span><span class="fl">1e4</span>, max <span class="op">=</span> <span class="fl">1e4</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">M</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span class="r-in">    start_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">ends</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">ends</span><span class="op">)</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>,</span>
-<span class="r-in">    end_pos <span class="op">=</span> <span class="va">ends</span>,</span>
-<span class="r-in">    rec_prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">ends</span><span class="op">)</span>, <span class="fl">0.01</span>, <span class="fl">0.004</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu">recomb_point</span><span class="op">(</span><span class="va">M</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># for an example, create a tibble of bins, roughly 1 Mb each,</span></span></span>
+<span class="r-in"><span><span class="co"># on a chromosome of length roughly 150 Mb, and we assign each</span></span></span>
+<span class="r-in"><span><span class="co"># a rec_prob around 0.01</span></span></span>
+<span class="r-in"><span><span class="va">ends</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1e6</span>, <span class="fl">150e6</span>, by <span class="op">=</span> <span class="fl">1e6</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ends</span> <span class="op">&lt;-</span> <span class="va">ends</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">ends</span><span class="op">)</span>, min <span class="op">=</span> <span class="op">-</span><span class="fl">1e4</span>, max <span class="op">=</span> <span class="fl">1e4</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">M</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    start_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">ends</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">ends</span><span class="op">)</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    end_pos <span class="op">=</span> <span class="va">ends</span>,</span></span>
+<span class="r-in"><span>    rec_prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">ends</span><span class="op">)</span>, <span class="fl">0.01</span>, <span class="fl">0.004</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">recomb_point</span><span class="op">(</span><span class="va">M</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  10296180  67971549 130797997</span>
 </code></pre></div>
     </div>
@@ -137,7 +137,7 @@ it is so unlikely that a recombination will ever occur in the same place.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

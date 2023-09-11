@@ -16,8 +16,8 @@
 #' like `my_path/myfile` to get the output file `mypath.myfile.dot`
 #' @param edge_label_font_size The font size of the number annotations along the edges.
 #' @param haplo_origin_colors The colors for different origins of haplotypes.
-#' By default there are only four.  If you have more populations that founders
-#' may come from, you should add some more.
+#' By default there are only sixteen.  If you have more populations that founders
+#' may come from, you should provide a vector with more than 16 colors.
 #' @param sam_node_color The color given to the sample nodes in the GSP.
 #' @param sample_edge_label_color Color for the numeric annotations along the
 #' edges leading to samples.
@@ -45,7 +45,24 @@ gsp2dot <- function(
   g,
   path = file.path(tempfile(), "file_prefix"),
   edge_label_font_size = 18,
-  haplo_origin_colors = c("lightblue", "orange", "blue", "green"),
+  haplo_origin_colors = c(
+    "lightblue",
+    "orange",
+    "blue",
+    "green",
+    "cadetblue",
+    "dodgerblue3",
+    "darkolivegreen1",
+    "forestgreen",
+    "lightpink",
+    "red2",
+    "sandybrown",
+    "orangered",
+    "plum3",
+    "purple4",
+    "palegoldenrod",
+    "peru"
+  ),
   sam_node_color = "violet",
   sample_edge_label_color = "purple",
   parent_edge_label_color = "red"

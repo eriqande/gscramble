@@ -57,7 +57,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">segments2markers</span><span class="op">(</span><span class="va">Segs</span>, <span class="va">Im</span>, <span class="va">Mm</span>, <span class="va">G</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">segments2markers</span><span class="op">(</span><span class="va">Segs</span>, <span class="va">Im</span>, <span class="va">Mm</span>, <span class="va">G</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -87,36 +87,36 @@ and L is the number of markers.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">#### First, get input segments for the function ####</span></span>
-<span class="r-in"><span class="co"># We construct an example here where we will request segregation</span></span>
-<span class="r-in"><span class="co"># down a GSP with two F1s and F1B backcrosses between two hypothetical</span></span>
-<span class="r-in"><span class="co"># populations, A and B.</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">gsp_f1f1b</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_GSP.html">create_GSP</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, F1 <span class="op">=</span> <span class="cn">TRUE</span>, F1B <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># We will imagine that in our marker data there are three groups</span></span>
-<span class="r-in"><span class="co"># labelled "Pop1", "Pop2", and "Pop3", and we want to create the F1Bs with backcrossing</span></span>
-<span class="r-in"><span class="co"># only to Pop3.</span></span>
-<span class="r-in"><span class="va">reppop</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span class="r-in">    index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">    pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>,</span>
-<span class="r-in">    group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop3"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop3"</span>, <span class="st">"Pop2"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># combine those into a request</span></span>
-<span class="r-in"><span class="va">request</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span class="r-in">   gpp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">gsp_f1f1b</span><span class="op">)</span>,</span>
-<span class="r-in">   reppop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">reppop</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># now segegate segments.  Explicitly pass the markers</span></span>
-<span class="r-in"><span class="co"># in M_meta so that the order of the markers is set efficiently.</span></span>
-<span class="r-in"><span class="va">segs</span> <span class="op">&lt;-</span> <span class="fu"><a href="segregate.html">segregate</a></span><span class="op">(</span><span class="va">request</span>, <span class="va">RecRates</span>, <span class="va">M_meta</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">#### Now, use segs in an example with segments2markers() ####</span></span>
-<span class="r-in"><span class="co"># this uses several package data objects that are there for examples</span></span>
-<span class="r-in"><span class="co"># and illustration.</span></span>
-<span class="r-in"><span class="va">s2m_result</span> <span class="op">&lt;-</span> <span class="fu">segments2markers</span><span class="op">(</span><span class="va">segs</span>, <span class="va">I_meta</span>, <span class="va">M_meta</span>, <span class="va">Geno</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#### First, get input segments for the function ####</span></span></span>
+<span class="r-in"><span><span class="co"># We construct an example here where we will request segregation</span></span></span>
+<span class="r-in"><span><span class="co"># down a GSP with two F1s and F1B backcrosses between two hypothetical</span></span></span>
+<span class="r-in"><span><span class="co"># populations, A and B.</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">gsp_f1f1b</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_GSP.html">create_GSP</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, F1 <span class="op">=</span> <span class="cn">TRUE</span>, F1B <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># We will imagine that in our marker data there are three groups</span></span></span>
+<span class="r-in"><span><span class="co"># labelled "Pop1", "Pop2", and "Pop3", and we want to create the F1Bs with backcrossing</span></span></span>
+<span class="r-in"><span><span class="co"># only to Pop3.</span></span></span>
+<span class="r-in"><span><span class="va">reppop</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop3"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop3"</span>, <span class="st">"Pop2"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># combine those into a request</span></span></span>
+<span class="r-in"><span><span class="va">request</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>   gpp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">gsp_f1f1b</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>   reppop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">reppop</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># now segegate segments.  Explicitly pass the markers</span></span></span>
+<span class="r-in"><span><span class="co"># in M_meta so that the order of the markers is set efficiently.</span></span></span>
+<span class="r-in"><span><span class="va">segs</span> <span class="op">&lt;-</span> <span class="fu"><a href="segregate.html">segregate</a></span><span class="op">(</span><span class="va">request</span>, <span class="va">RecRates</span>, <span class="va">M_meta</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">#### Now, use segs in an example with segments2markers() ####</span></span></span>
+<span class="r-in"><span><span class="co"># this uses several package data objects that are there for examples</span></span></span>
+<span class="r-in"><span><span class="co"># and illustration.</span></span></span>
+<span class="r-in"><span><span class="va">s2m_result</span> <span class="op">&lt;-</span> <span class="fu">segments2markers</span><span class="op">(</span><span class="va">segs</span>, <span class="va">I_meta</span>, <span class="va">M_meta</span>, <span class="va">Geno</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -131,7 +131,7 @@ and L is the number of markers.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

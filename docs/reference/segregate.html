@@ -63,7 +63,7 @@ of segments down through the pedigrees</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">segregate</span><span class="op">(</span><span class="va">request</span>, <span class="va">RR</span>, MM <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">segregate</span><span class="op">(</span><span class="va">request</span>, <span class="va">RR</span>, MM <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -126,33 +126,33 @@ can all, eventually, be accessed easily out of the genotype matrix.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># We construct an example here where we will request segregation</span></span>
-<span class="r-in"><span class="co"># down a GSP with two F1s and F1B backcrosses between two hypothetical</span></span>
-<span class="r-in"><span class="co"># populations, A and B.</span></span>
-<span class="r-in"><span class="va">gsp_f1f1b</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_GSP.html">create_GSP</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, F1 <span class="op">=</span> <span class="cn">TRUE</span>, F1B <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># We will imagine that in our marker data there are three groups</span></span>
-<span class="r-in"><span class="co"># labelled "grp1", "grp2", and "grp3", and we want to create the F1Bs with backcrossing</span></span>
-<span class="r-in"><span class="co"># only to grp3.</span></span>
-<span class="r-in"><span class="va">reppop</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span class="r-in">    index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">    pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>,</span>
-<span class="r-in">    group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"grp3"</span>, <span class="st">"grp1"</span>, <span class="st">"grp3"</span>, <span class="st">"grp2"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># combine those into a request</span></span>
-<span class="r-in"><span class="va">request</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span class="r-in">   gpp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">gsp_f1f1b</span><span class="op">)</span>,</span>
-<span class="r-in">   reppop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">reppop</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">result1</span> <span class="op">&lt;-</span> <span class="fu">segregate</span><span class="op">(</span><span class="va">request</span>, <span class="va">RecRates</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># here we pass it some markers, too</span></span>
-<span class="r-in"><span class="va">result2</span> <span class="op">&lt;-</span> <span class="fu">segregate</span><span class="op">(</span><span class="va">request</span>, <span class="va">RecRates</span>, <span class="va">M_meta</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">result1</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># We construct an example here where we will request segregation</span></span></span>
+<span class="r-in"><span><span class="co"># down a GSP with two F1s and F1B backcrosses between two hypothetical</span></span></span>
+<span class="r-in"><span><span class="co"># populations, A and B.</span></span></span>
+<span class="r-in"><span><span class="va">gsp_f1f1b</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_GSP.html">create_GSP</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, F1 <span class="op">=</span> <span class="cn">TRUE</span>, F1B <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># We will imagine that in our marker data there are three groups</span></span></span>
+<span class="r-in"><span><span class="co"># labelled "grp1", "grp2", and "grp3", and we want to create the F1Bs with backcrossing</span></span></span>
+<span class="r-in"><span><span class="co"># only to grp3.</span></span></span>
+<span class="r-in"><span><span class="va">reppop</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"grp3"</span>, <span class="st">"grp1"</span>, <span class="st">"grp3"</span>, <span class="st">"grp2"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># combine those into a request</span></span></span>
+<span class="r-in"><span><span class="va">request</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>   gpp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">gsp_f1f1b</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>   reppop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">reppop</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">result1</span> <span class="op">&lt;-</span> <span class="fu">segregate</span><span class="op">(</span><span class="va">request</span>, <span class="va">RecRates</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># here we pass it some markers, too</span></span></span>
+<span class="r-in"><span><span class="va">result2</span> <span class="op">&lt;-</span> <span class="fu">segregate</span><span class="op">(</span><span class="va">request</span>, <span class="va">RecRates</span>, <span class="va">M_meta</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">result1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 52 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    chrom_f   gpp index chrom ped_sample_id samp_index gamete_index</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -166,11 +166,12 @@ can all, eventually, be accessed easily out of the genotype matrix.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 17          1     1 17    5                      1            1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 18          1     1 18    5                      1            1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 12          1     1 12    5                      1            2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 42 more rows, and 7 more variables: gamete_segments &lt;list&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pop_origin &lt;chr&gt;, rs_founder_haplo &lt;int&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   group_origin &lt;chr&gt;, sim_level_founder_haplo &lt;int&gt;</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">result2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 42 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 more variables: gamete_segments &lt;list&gt;, pop_origin &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rs_founder_haplo &lt;int&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;, group_origin &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sim_level_founder_haplo &lt;int&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">result2</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 48 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    chrom_f   gpp index chrom ped_sample_id samp_index gamete_index</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -184,9 +185,10 @@ can all, eventually, be accessed easily out of the genotype matrix.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 17          1     1 17    5                      1            1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 18          1     1 18    5                      1            1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 12          1     1 12    5                      1            2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 38 more rows, and 7 more variables: gamete_segments &lt;list&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pop_origin &lt;chr&gt;, rs_founder_haplo &lt;int&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   group_origin &lt;chr&gt;, sim_level_founder_haplo &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 38 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 more variables: gamete_segments &lt;list&gt;, pop_origin &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rs_founder_haplo &lt;int&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;, group_origin &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sim_level_founder_haplo &lt;int&gt;</span></span>
 </code></pre></div>
     </div>
   </div>
@@ -201,7 +203,7 @@ can all, eventually, be accessed easily out of the genotype matrix.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

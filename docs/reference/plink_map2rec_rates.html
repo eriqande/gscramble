@@ -67,12 +67,12 @@ used by setting <code>use_morgans</code> to TRUE.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">plink_map2rec_rates</span><span class="op">(</span>
-  <span class="va">map</span>,
-  use_morgans <span class="op">=</span> <span class="cn">FALSE</span>,
-  cM_per_Mb <span class="op">=</span> <span class="fl">1</span>,
-  chrom_lengths <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plink_map2rec_rates</span><span class="op">(</span></span>
+<span>  <span class="va">map</span>,</span>
+<span>  use_morgans <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  cM_per_Mb <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  chrom_lengths <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -115,14 +115,14 @@ add those in there, then pass them into the <code>chrom_lengths</code> option.</
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mapfile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="st">"extdata/example-plink-with-morgans.map.gz"</span>,</span>
-<span class="r-in">    package <span class="op">=</span> <span class="st">"gscramble"</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># get a rec-rates tibble from the positions of the markers,</span></span>
-<span class="r-in"><span class="co"># assuming 1 cM per megabase.</span></span>
-<span class="r-in"><span class="va">rec_rates_from_positions</span> <span class="op">&lt;-</span> <span class="fu">plink_map2rec_rates</span><span class="op">(</span><span class="va">mapfile</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mapfile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"extdata/example-plink-with-morgans.map.gz"</span>,</span></span>
+<span class="r-in"><span>    package <span class="op">=</span> <span class="st">"gscramble"</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># get a rec-rates tibble from the positions of the markers,</span></span></span>
+<span class="r-in"><span><span class="co"># assuming 1 cM per megabase.</span></span></span>
+<span class="r-in"><span><span class="va">rec_rates_from_positions</span> <span class="op">&lt;-</span> <span class="fu">plink_map2rec_rates</span><span class="op">(</span><span class="va">mapfile</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">100</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">4</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Delimiter:</span> "\t"</span>
@@ -131,13 +131,13 @@ add those in there, then pass them into the <code>chrom_lengths</code> option.</
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># get a rec-rates tibble from the positions of the markers,</span></span>
-<span class="r-in"><span class="co"># assuming 1.5 cM per megabase.</span></span>
-<span class="r-in"><span class="va">rec_rates_from_positions_1.5</span> <span class="op">&lt;-</span> <span class="fu">plink_map2rec_rates</span><span class="op">(</span></span>
-<span class="r-in">    <span class="va">mapfile</span>,</span>
-<span class="r-in">    cM_per_Mb <span class="op">=</span> <span class="fl">1.5</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># get a rec-rates tibble from the positions of the markers,</span></span></span>
+<span class="r-in"><span><span class="co"># assuming 1.5 cM per megabase.</span></span></span>
+<span class="r-in"><span><span class="va">rec_rates_from_positions_1.5</span> <span class="op">&lt;-</span> <span class="fu">plink_map2rec_rates</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="va">mapfile</span>,</span></span>
+<span class="r-in"><span>    cM_per_Mb <span class="op">=</span> <span class="fl">1.5</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">100</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">4</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Delimiter:</span> "\t"</span>
@@ -146,13 +146,13 @@ add those in there, then pass them into the <code>chrom_lengths</code> option.</
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># get a rec-rates tibble from the cumulative Morgans position</span></span>
-<span class="r-in"><span class="co"># in the plink map file</span></span>
-<span class="r-in"><span class="va">rec_rates_from_positions_Morg</span> <span class="op">&lt;-</span> <span class="fu">plink_map2rec_rates</span><span class="op">(</span></span>
-<span class="r-in">    <span class="va">mapfile</span>,</span>
-<span class="r-in">    use_morgans <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># get a rec-rates tibble from the cumulative Morgans position</span></span></span>
+<span class="r-in"><span><span class="co"># in the plink map file</span></span></span>
+<span class="r-in"><span><span class="va">rec_rates_from_positions_Morg</span> <span class="op">&lt;-</span> <span class="fu">plink_map2rec_rates</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="va">mapfile</span>,</span></span>
+<span class="r-in"><span>    use_morgans <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">100</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">4</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Delimiter:</span> "\t"</span>
@@ -161,17 +161,17 @@ add those in there, then pass them into the <code>chrom_lengths</code> option.</
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># get a rec-rates tibble from the cumulative Morgans position</span></span>
-<span class="r-in"><span class="co"># in the plink map file, and extend it out to the full length</span></span>
-<span class="r-in"><span class="co"># of the chromosome (assuming for that last part of the chromosome</span></span>
-<span class="r-in"><span class="co"># a map of 1.2 cM per megabase.)</span></span>
-<span class="r-in"><span class="va">rec_rates_from_positions_Morg_fl</span> <span class="op">&lt;-</span> <span class="fu">plink_map2rec_rates</span><span class="op">(</span></span>
-<span class="r-in">    <span class="va">mapfile</span>,</span>
-<span class="r-in">    use_morgans <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">    cM_per_Mb <span class="op">=</span> <span class="fl">1.2</span>,</span>
-<span class="r-in">    chrom_lengths <span class="op">=</span> <span class="va">example_chrom_lengths</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># get a rec-rates tibble from the cumulative Morgans position</span></span></span>
+<span class="r-in"><span><span class="co"># in the plink map file, and extend it out to the full length</span></span></span>
+<span class="r-in"><span><span class="co"># of the chromosome (assuming for that last part of the chromosome</span></span></span>
+<span class="r-in"><span><span class="co"># a map of 1.2 cM per megabase.)</span></span></span>
+<span class="r-in"><span><span class="va">rec_rates_from_positions_Morg_fl</span> <span class="op">&lt;-</span> <span class="fu">plink_map2rec_rates</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="va">mapfile</span>,</span></span>
+<span class="r-in"><span>    use_morgans <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>    cM_per_Mb <span class="op">=</span> <span class="fl">1.2</span>,</span></span>
+<span class="r-in"><span>    chrom_lengths <span class="op">=</span> <span class="va">example_chrom_lengths</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">100</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">4</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Delimiter:</span> "\t"</span>
@@ -194,7 +194,7 @@ add those in there, then pass them into the <code>chrom_lengths</code> option.</
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

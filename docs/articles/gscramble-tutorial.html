@@ -83,16 +83,18 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">gscramble</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-<span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.1 ──</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.3.6     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 0.3.4</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble </span> 3.1.7     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr  </span> 1.0.9</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr  </span> 1.2.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr</span> 1.4.0</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats</span> 0.5.1</span>
-<span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-<span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span>
-<span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">gscramble</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.4.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.1     </span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use the conflicted package (<span style="color: #0000BB; font-style: italic;">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="input-data">Input Data<a class="anchor" aria-label="anchor" href="#input-data"></a>
 </h2>
@@ -107,15 +109,15 @@ objects for <code>gscramble</code>.</p>
 <p>The main required objects (loosely aligning with .bed/.fam/.bim file
 structure of binary PLINK files) are:</p>
 <ol style="list-style-type: decimal">
-<li>A matrix of genotype data (<code>Geno</code> as example data
-included with the package)</li>
+<li>A matrix of genotype data (the <code>Geno</code> object included
+with the package as example data)</li>
 <li>A tibble of meta data about the individuals in the genotype data
-(<code>I_meta</code>)</li>
+(<code>I_meta</code> as example data)</li>
 <li>A tibble of meta data about the markers in the genotype data
-(<code>M_meta</code>)</li>
+(<code>M_meta</code> as example data)</li>
 </ol>
-<p>On top of those, if you want to simulate hybrid individuals according
-to a pedigree, you will need to provide:</p>
+<p>In addition to these objects, if you want to simulate hybrid
+individuals according to a pedigree, you will need to provide:</p>
 <ol start="4" style="list-style-type: decimal">
 <li>A tibble that describes the rates of genetic recombination along the
 chromosomes (<code>RecRates</code>)</li>
@@ -131,9 +133,10 @@ hybridization replicates (<code>RepPop</code>)</li>
 make them small enough to host on CRAN) illustrating 78 individuals
 genotyped at 100 loci distributed across 3 chromosomes (chr 12, 17,
 &amp; 18) and sampled from 4 groups (Pop1, 2, 3, 4) from a data set of
-invasive feral swine, are included as data objects with the package. The
+invasive feral swine, are included as data objects with the package
+(<code>Geno</code>, <code>I_meta</code>, and <code>M_meta</code>). The
 full data set, from which the package data were downsampled, was used in
-Smyser et al. (2020), and is available at <a href="https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.jsxksn05z" class="external-link uri">https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.jsxksn05z</a></p>
+Smyser et al. (2020), and is available at <a href="https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.jsxksn05z" class="external-link uri">https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.jsxksn05z</a>.</p>
 <div class="section level3">
 <h3 id="matrix-of-genotype-data--geno">Matrix of genotype data. <code>Geno</code><a class="anchor" aria-label="anchor" href="#matrix-of-genotype-data--geno"></a>
 </h3>
@@ -148,15 +151,15 @@ column <code>Geno[1,3]</code> is the first allele at the second locus
 for the first individual, and so on.</p>
 <p>The names/IDs of the individuals must be included as the the rownames
 of the matrix of genotypes.</p>
-<p>Here is an example of data on the first 6 loci in the first 4
-individuals from the package data <code>Geno</code>:</p>
+<p>Here is an example of the first 6 loci for the first 4 individuals
+from the data included with the package as <code>Geno</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Geno</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">12</span><span class="op">]</span>
-<span class="co">#&gt;           [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]</span>
-<span class="co">#&gt; ID0033692 "G"  "G"  NA   NA   "T"  "T"  "A"  "A"  "G"  "G"   "T"   "T"  </span>
-<span class="co">#&gt; ID0014942 "G"  "G"  "C"  "C"  "T"  "T"  "A"  "A"  "G"  "G"   "T"   "T"  </span>
-<span class="co">#&gt; ID0014961 "G"  "G"  "C"  "C"  "T"  "T"  "A"  "A"  "G"  "G"   "T"   "T"  </span>
-<span class="co">#&gt; ID0016971 "G"  "G"  "C"  "C"  "T"  "T"  NA   NA   "G"  "G"   "T"   "T"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Geno</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">12</span><span class="op">]</span></span>
+<span><span class="co">#&gt;           [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]</span></span>
+<span><span class="co">#&gt; ID0033692 "G"  "G"  NA   NA   "T"  "T"  "A"  "A"  "G"  "G"   "T"   "T"  </span></span>
+<span><span class="co">#&gt; ID0014942 "G"  "G"  "C"  "C"  "T"  "T"  "A"  "A"  "G"  "G"   "T"   "T"  </span></span>
+<span><span class="co">#&gt; ID0014961 "G"  "G"  "C"  "C"  "T"  "T"  "A"  "A"  "G"  "G"   "T"   "T"  </span></span>
+<span><span class="co">#&gt; ID0016971 "G"  "G"  "C"  "C"  "T"  "T"  NA   NA   "G"  "G"   "T"   "T"</span></span></code></pre></div>
 <p>These data must be stored as a <strong>character Matrix</strong>.
 Don’t pass in a matrix of integers. The alleles can be any characters
 whatsoever. This allows the data to be microsatellites,
@@ -168,9 +171,9 @@ example <code>IntMat</code>, you can coerce all the elements of that
 matrix to be characters without losing the matrix shape of the data, by
 doing this:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mode.html" class="external-link">storage.mode</a></span><span class="op">(</span><span class="va">IntMat</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"character"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mode.html" class="external-link">storage.mode</a></span><span class="op">(</span><span class="va">IntMat</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"character"</span></span></code></pre></div>
 <p>Missing genotype data must be denoted by the standard R missing-data
-specifier, <code>NA</code>. Don’t go around calling missing data
+specifier, <code>NA</code>. Don’t specify missing data as
 <code>"-1"</code> and expect it to work properly! Change those
 <code>"-1"</code>’s to <code>NA</code>s, or they will be regarded as an
 allelic type, rather than as missing data. If you do have missing data
@@ -178,7 +181,7 @@ that are denoted as <code>"-1"</code>, for example, then you can change
 all those <code>"-1"</code>’s to <code>NA</code>s using the
 following:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Geno</span><span class="op">[</span><span class="va">Geno</span> <span class="op">==</span> <span class="st">"-1"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Geno</span><span class="op">[</span><span class="va">Geno</span> <span class="op">==</span> <span class="st">"-1"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 <p>Presently, since there are no <code>"-1"</code> entries in the
 <code>Geno</code> dataset, this line changes nothing.</p>
 </div>
@@ -186,8 +189,8 @@ following:</p>
 <h3 id="individual-meta-data--i_meta">Individual meta data. <code>I_meta</code><a class="anchor" aria-label="anchor" href="#individual-meta-data--i_meta"></a>
 </h3>
 <p>This is a tibble that gives information about the individuals whose
-genotypes are in <code>Geno</code>. This can have many different columns
-if you want to have them, but there must be at least two columns:</p>
+genotypes are in <code>Geno</code>. This can have as many different
+columns as you want, but there must be at least two columns:</p>
 <ul>
 <li>
 <code>group</code>: a column that gives the character name of the
@@ -201,19 +204,19 @@ individual.</li>
 number of rows on <code>Geno</code> <em>and</em> the order of
 individuals in <code>I_meta</code> must correspond exactly to the order
 of individuals in <code>Geno</code>.</p>
-<p>Here is what the first few rows of the example data’s
+<p>Here is what the first few rows from the example data
 <code>I_meta</code> look like:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">I_meta</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 2</span></span>
-<span class="co">#&gt;   group indiv    </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Pop1  ID0033692</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Pop1  ID0014942</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Pop1  ID0014961</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Pop1  ID0016971</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Pop1  ID0016972</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Pop1  ID0017013</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">I_meta</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 2</span></span></span>
+<span><span class="co">#&gt;   group indiv    </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Pop1  ID0033692</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Pop1  ID0014942</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Pop1  ID0014961</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Pop1  ID0016971</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Pop1  ID0016972</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Pop1  ID0017013</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="marker-meta-data--m_meta">Marker meta data. <code>M_meta</code><a class="anchor" aria-label="anchor" href="#marker-meta-data--m_meta"></a>
@@ -239,8 +242,9 @@ arbitrary units that correspond to position units in
 be greater than 0.</li>
 <li>
 <code>variant_id</code>: a character vector of unique ID names for
-the markers. These should be globally unique, i.e., don’t have two
-markers on different chromosomes that are named the same thing.</li>
+the markers. These should be globally unique, i.e., there CANNOT be two
+or more markers, even on different chromosomes, that are named the same
+thing.</li>
 </ul>
 <p>There must be exactly half as many rows in <code>M_meta</code> as
 there are columns in <code>Geno</code>, and the order of markers in
@@ -249,16 +253,16 @@ the columns in <code>Geno</code>.</p>
 <p>Here are the first few rows of the example data
 <code>M_meta</code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">M_meta</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span>
-<span class="co">#&gt;   chrom      pos variant_id         </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 12     4<span style="text-decoration: underline;">469</span>057 WU_10.2_12_4469057 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 12     5<span style="text-decoration: underline;">238</span>225 ALGA0064411        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 12     7<span style="text-decoration: underline;">394</span>362 WU_10.2_12_7394362 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 12     7<span style="text-decoration: underline;">651</span>064 ASGA0090707        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 12     8<span style="text-decoration: underline;">971</span>475 WU_10.2_12_8971475 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 12    11<span style="text-decoration: underline;">034</span>660 WU_10.2_12_11034660</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">M_meta</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span></span>
+<span><span class="co">#&gt;   chrom      pos variant_id         </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 12     4<span style="text-decoration: underline;">469</span>057 WU_10.2_12_4469057 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 12     5<span style="text-decoration: underline;">238</span>225 ALGA0064411        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 12     7<span style="text-decoration: underline;">394</span>362 WU_10.2_12_7394362 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 12     7<span style="text-decoration: underline;">651</span>064 ASGA0090707        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 12     8<span style="text-decoration: underline;">971</span>475 WU_10.2_12_8971475 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 12    11<span style="text-decoration: underline;">034</span>660 WU_10.2_12_11034660</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="recombination-rates--recrates">Recombination rates. <code>RecRates</code><a class="anchor" aria-label="anchor" href="#recombination-rates--recrates"></a>
@@ -280,8 +284,8 @@ that the chromosome nomenclature must match exactly that used in
 <code>M_meta</code>.</li>
 <li>
 <code>chrom_len</code>: the length of the chromosome. Yes, the value
-for each chromosome will typically be duplicated on each row occupied by
-that <code>chrom</code>.</li>
+for each chromosome will be the same for each marker/row associated with
+a given <code>chrom</code>.</li>
 <li>
 <code>start_pos</code>: the starting position of the bin. This will
 typically be a position along the chromosome in base pairs, though this
@@ -317,16 +321,16 @@ this regard by making sure that you pass your marker meta data
 the <code><a href="../reference/segregate.html">segregate()</a></code> function (see below).</li>
 </ol>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">RecRates</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 5</span></span>
-<span class="co">#&gt;   chrom chrom_len start_pos end_pos rec_prob</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 12     63<span style="text-decoration: underline;">582</span>536         1   <span style="text-decoration: underline;">79</span>501 0.000<span style="text-decoration: underline;">694</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 12     63<span style="text-decoration: underline;">582</span>536     <span style="text-decoration: underline;">79</span>502 1<span style="text-decoration: underline;">573</span>908 0.001<span style="text-decoration: underline;">31</span> </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 12     63<span style="text-decoration: underline;">582</span>536   1<span style="text-decoration: underline;">573</span>909 2<span style="text-decoration: underline;">097</span>503 0.000<span style="text-decoration: underline;">554</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 12     63<span style="text-decoration: underline;">582</span>536   2<span style="text-decoration: underline;">097</span>504 3<span style="text-decoration: underline;">308</span>663 0.005<span style="text-decoration: underline;">57</span> </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 12     63<span style="text-decoration: underline;">582</span>536   3<span style="text-decoration: underline;">308</span>664 4<span style="text-decoration: underline;">021</span>031 0.017<span style="text-decoration: underline;">9</span>  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 12     63<span style="text-decoration: underline;">582</span>536   4<span style="text-decoration: underline;">021</span>032 5<span style="text-decoration: underline;">026</span>780 0.011<span style="text-decoration: underline;">5</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">RecRates</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 5</span></span></span>
+<span><span class="co">#&gt;   chrom chrom_len start_pos end_pos rec_prob</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 12     63<span style="text-decoration: underline;">582</span>536         1   <span style="text-decoration: underline;">79</span>501 0.000<span style="text-decoration: underline;">694</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 12     63<span style="text-decoration: underline;">582</span>536     <span style="text-decoration: underline;">79</span>502 1<span style="text-decoration: underline;">573</span>908 0.001<span style="text-decoration: underline;">31</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 12     63<span style="text-decoration: underline;">582</span>536   1<span style="text-decoration: underline;">573</span>909 2<span style="text-decoration: underline;">097</span>503 0.000<span style="text-decoration: underline;">554</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 12     63<span style="text-decoration: underline;">582</span>536   2<span style="text-decoration: underline;">097</span>504 3<span style="text-decoration: underline;">308</span>663 0.005<span style="text-decoration: underline;">57</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 12     63<span style="text-decoration: underline;">582</span>536   3<span style="text-decoration: underline;">308</span>664 4<span style="text-decoration: underline;">021</span>031 0.017<span style="text-decoration: underline;">9</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 12     63<span style="text-decoration: underline;">582</span>536   4<span style="text-decoration: underline;">021</span>032 5<span style="text-decoration: underline;">026</span>780 0.011<span style="text-decoration: underline;">5</span></span></span></code></pre></div>
 <div class="section level4">
 <h4 id="making-a-recrates-like-tibble-from-a-plink-map-file">Making a <code>RecRates</code>-like tibble from a plink map
 file<a class="anchor" aria-label="anchor" href="#making-a-recrates-like-tibble-from-a-plink-map-file"></a>
@@ -369,26 +373,36 @@ restricted to these GSP configurations. These 15 specific GSP
 configurations were of interest to the authors and are included to
 illustrate how to structure GSP tibbles that may be of interest to
 you.</p>
-<p>To try to explain the GSP concept more fully, we will first draw a
+To try to explain the GSP concept more fully, we will first draw a
 picture of the most basic pedigree (the simulation of F1s created
 through the hybridization of individuals from two populations). We then
 show the tibble representation of that same GSP and discuss the
 structure of a GSP in light of those two pieces of information.
-<img src="../reference/figures/F1-500.png" width="50%" style="display: block; margin: auto;"></p>
+<div class="figure" style="text-align: center">
+<img src="../reference/figures/F1-500.png" alt="**A Simple GSP.** Here we have a pedigree with  diploid founder '1', who is formed by the union of two gametes from Population A, and diploid founder '2' with two gametes from Population B. Founder '1' and founder '2' then pass 2 gametes (red 2's) for the formation of 2 individuals represented by their descendant 'box 3'. The pink hexagon 's3' then represents the samples taken from 'box 3' with the pink 2 used to indicate the number of diploid individuals sampled." width="50%"><p class="caption">
+<strong>A Simple GSP.</strong> Here we have a pedigree with diploid
+founder ‘1’, who is formed by the union of two gametes from Population
+A, and diploid founder ‘2’ with two gametes from Population B. Founder
+‘1’ and founder ‘2’ then pass 2 gametes (red 2’s) for the formation of 2
+individuals represented by their descendant ‘box 3’. The pink hexagon
+‘s3’ then represents the samples taken from ‘box 3’ with the pink 2 used
+to indicate the number of diploid individuals sampled.
+</p>
+</div>
 <p>Let’s develop this basic example of simulating F1 hybrids. The first
 step would be to define the GSP in which we are describing sources as
 ‘p1’ and ‘p2’, and then we will need an associated <code>RepPop</code>
 to represent the two different populations the founders belong to.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gspF1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_GSP.html">create_GSP</a></span><span class="op">(</span>pop1 <span class="op">=</span> <span class="st">"p1"</span>, pop2 <span class="op">=</span> <span class="st">"p2"</span>, F1 <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="va">gspF1</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 11</span></span>
-<span class="co">#&gt;     ind  par1  par2 ipar1 ipar2 hap1  hap2  hpop1 hpop2 sample osample</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 1a    1b    p1    p1    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     2    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2a    2b    p2    p2    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     3     1     2     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s3           2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">gspF1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_GSP.html">create_GSP</a></span><span class="op">(</span>pop1 <span class="op">=</span> <span class="st">"p1"</span>, pop2 <span class="op">=</span> <span class="st">"p2"</span>, F1 <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">gspF1</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 11</span></span></span>
+<span><span class="co">#&gt;     ind  par1  par2 ipar1 ipar2 hap1  hap2  hpop1 hpop2 sample osample</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 1a    1b    p1    p1    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     2    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2a    2b    p2    p2    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     3     1     2     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s3           2</span></span></code></pre></div>
 <p>To accompany this GSP, we next need to define the groups that we are
 interested in hybridizing - in this case Pop1 and Pop2 - with a
 <code>RepPop</code> tibble.</p>
@@ -398,18 +412,18 @@ the groups to be hybridized. Accordingly, let’s lightly introduce the
 <code>RepPop</code> object here by specifying the tibble that
 accompanies this F1 GSP.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Pattern</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop1"</span>, <span class="st">"Pop2"</span><span class="op">)</span>
-<span class="va">RepPopSimpleF1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
-  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p1"</span>, <span class="st">"p2"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
-  group <span class="op">=</span> <span class="va">Pattern</span>
-<span class="op">)</span>
-<span class="va">RepPopSimpleF1</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 3</span></span>
-<span class="co">#&gt;   index pop   group</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 p2    Pop2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Pattern</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop1"</span>, <span class="st">"Pop2"</span><span class="op">)</span></span>
+<span><span class="va">RepPopSimpleF1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p1"</span>, <span class="st">"p2"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  group <span class="op">=</span> <span class="va">Pattern</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">RepPopSimpleF1</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 3</span></span></span>
+<span><span class="co">#&gt;   index pop   group</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 p2    Pop2</span></span></code></pre></div>
 <p>Please note that F1s are symmetrical, such that a Pop1-Pop2 F1 hybrid
 is identical to a Pop2-Pop1 F1 hybrid. This will not be the case as we
 continue developing more complex GSPs that include backcrossed
@@ -420,69 +434,69 @@ add a little more complexity working within the same GSP, we could
 modify the <code>RepPop</code> tibble to simulate hybrids between Pop1
 and all other populations.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Pattern</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop1"</span>, <span class="st">"Pop2"</span>, <span class="st">"Pop1"</span>,
-            <span class="st">"Pop3"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop4"</span><span class="op">)</span>
-<span class="va">RepPopSimpleF1_b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
-  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p1"</span>, <span class="st">"p2"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,
-  group <span class="op">=</span> <span class="va">Pattern</span>
-<span class="op">)</span>
-<span class="va">RepPopSimpleF1_b</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span>
-<span class="co">#&gt;   index pop   group</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 p2    Pop2 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     2 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     2 p2    Pop3 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     3 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     3 p2    Pop4</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Pattern</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop1"</span>, <span class="st">"Pop2"</span>, <span class="st">"Pop1"</span>,</span>
+<span>            <span class="st">"Pop3"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop4"</span><span class="op">)</span></span>
+<span><span class="va">RepPopSimpleF1_b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p1"</span>, <span class="st">"p2"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  group <span class="op">=</span> <span class="va">Pattern</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">RepPopSimpleF1_b</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span></span>
+<span><span class="co">#&gt;   index pop   group</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 p2    Pop2 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     2 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     2 p2    Pop3 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     3 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     3 p2    Pop4</span></span></code></pre></div>
 <p>Or, perhaps, let’s say you are interested in simulating F1 hybrids
 for all pairwise combinations of populations (with the example data
 Pop1, Pop2, Pop3, Pop4).<br>
 Accordingly, we need to specify the <code>RepPop</code> tibble to define
 which populations to use in each replicate of the simulation:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Pattern</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop1"</span>, <span class="st">"Pop2"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop3"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop4"</span>, 
-            <span class="st">"Pop2"</span>, <span class="st">"Pop3"</span>, <span class="st">"Pop2"</span>, <span class="st">"Pop4"</span>, <span class="st">"Pop3"</span>, <span class="st">"Pop4"</span><span class="op">)</span>
-<span class="va">RepPopSimpleF1_c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
-  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p1"</span>, <span class="st">"p2"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>,
-  group <span class="op">=</span> <span class="va">Pattern</span>
-<span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">RepPopSimpleF1_c</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span>
-<span class="co">#&gt;   index pop   group</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 p2    Pop2 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     2 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     2 p2    Pop3 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     3 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     3 p2    Pop4</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Pattern</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop1"</span>, <span class="st">"Pop2"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop3"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop4"</span>, </span>
+<span>            <span class="st">"Pop2"</span>, <span class="st">"Pop3"</span>, <span class="st">"Pop2"</span>, <span class="st">"Pop4"</span>, <span class="st">"Pop3"</span>, <span class="st">"Pop4"</span><span class="op">)</span></span>
+<span><span class="va">RepPopSimpleF1_c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p1"</span>, <span class="st">"p2"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>,</span>
+<span>  group <span class="op">=</span> <span class="va">Pattern</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">RepPopSimpleF1_c</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span></span>
+<span><span class="co">#&gt;   index pop   group</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 p2    Pop2 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     2 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     2 p2    Pop3 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     3 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     3 p2    Pop4</span></span></code></pre></div>
 <p>Building upon this simplistic GSP, let’s define something a little
 more ‘complex’ with F1s, F1BC1s, and F1BC2s.<br>
 Start by using the built-in function <code><a href="../reference/create_GSP.html">create_GSP()</a></code>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gspComplex</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_GSP.html">create_GSP</a></span><span class="op">(</span>
-  pop1 <span class="op">=</span> <span class="st">"p1"</span>, 
-  pop2 <span class="op">=</span> <span class="st">"p2"</span>, 
-  F1 <span class="op">=</span> <span class="cn">TRUE</span>, 
-  F1B <span class="op">=</span> <span class="cn">TRUE</span>, 
-  F1B2 <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-
-<span class="va">gspComplex</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 7 × 11</span></span>
-<span class="co">#&gt;     ind  par1  par2 ipar1 ipar2 hap1  hap2  hpop1 hpop2 sample osample</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 1a    1b    p1    p1    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     2    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2a    2b    p1    p1    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     3    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 3a    3b    p1    p1    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     4    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 4a    4b    p2    p2    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     5     1     4     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s5           1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     6     2     5     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s6           1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">7</span>     7     3     6     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s7           2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">gspComplex</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_GSP.html">create_GSP</a></span><span class="op">(</span></span>
+<span>  pop1 <span class="op">=</span> <span class="st">"p1"</span>, </span>
+<span>  pop2 <span class="op">=</span> <span class="st">"p2"</span>, </span>
+<span>  F1 <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>  F1B <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>  F1B2 <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">gspComplex</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 7 × 11</span></span></span>
+<span><span class="co">#&gt;     ind  par1  par2 ipar1 ipar2 hap1  hap2  hpop1 hpop2 sample osample</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 1a    1b    p1    p1    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     2    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2a    2b    p1    p1    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     3    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 3a    3b    p1    p1    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     4    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 4a    4b    p2    p2    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     5     1     4     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s5           1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     6     2     5     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s6           1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span>     7     3     6     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s7           2</span></span></code></pre></div>
 <p>For this example, Pop1 is our population of interest. We are
 simulating Pop1-Pop2 F1s, then pairing those F1 individuals with Pop1 to
 generate backcrossed hybrids. Note that these simulated F1B1s and F1BC2
@@ -495,23 +509,23 @@ other populations (Pop2, Pop3, or Pop4), as well as two generations of
 backcrossing to each of those populations, we can use a
 <code>RepPop</code> tibble that looks like this:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Pattern</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop1"</span>, <span class="st">"Pop2"</span>, <span class="st">"Pop1"</span>, 
-            <span class="st">"Pop3"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop4"</span><span class="op">)</span>
-<span class="va">RepPopComplex1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
-  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p1"</span>, <span class="st">"p2"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, 
-  group <span class="op">=</span> <span class="va">Pattern</span>
-<span class="op">)</span>
-<span class="va">RepPopComplex1</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span>
-<span class="co">#&gt;   index pop   group</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 p2    Pop2 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     2 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     2 p2    Pop3 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     3 p1    Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     3 p2    Pop4</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Pattern</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pop1"</span>, <span class="st">"Pop2"</span>, <span class="st">"Pop1"</span>, </span>
+<span>            <span class="st">"Pop3"</span>, <span class="st">"Pop1"</span>, <span class="st">"Pop4"</span><span class="op">)</span></span>
+<span><span class="va">RepPopComplex1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p1"</span>, <span class="st">"p2"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, </span>
+<span>  group <span class="op">=</span> <span class="va">Pattern</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">RepPopComplex1</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span></span>
+<span><span class="co">#&gt;   index pop   group</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 p2    Pop2 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     2 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     2 p2    Pop3 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     3 p1    Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     3 p2    Pop4</span></span></code></pre></div>
 <p>We will go over more examples of how to define populations in
 <code>RepPop</code> in the section “Mapping populations/collections to
 founding populations. <code>RepPop</code>” of this tutorial. But for
@@ -526,37 +540,38 @@ hybridization:</p>
 simulation pedigree with 13 members. Here is a picture of what it looks
 like:</p>
 <p><img src="../reference/figures/13-member-ped.svg" width="100%" style="display: block; margin: auto;"></p>
-<p>You can produce this type of plot using the <code><a href="../reference/gsp2dot.html">gsp2dot()</a></code>
-function in the ‘gscramble’ package, as follows, but it requires the
-installation of the GraphViz <code>dot</code> software.</p>
+<p>Note, you can produce this type of plot using the
+<code><a href="../reference/gsp2dot.html">gsp2dot()</a></code> function in the ‘gscramble’ package, as follows,
+but it requires the installation of the GraphViz <code>dot</code>
+software.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/13-member-ped.csv"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span>
-<span class="va">gsp_tib</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="va">csv</span><span class="op">)</span>
-<span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gsp2dot.html">gsp2dot</a></span><span class="op">(</span>g <span class="op">=</span> <span class="va">gsp_tib</span>, path <span class="op">=</span> <span class="st">"images/13-member-ped"</span><span class="op">)</span>
-<span class="co"># now, get rid of the dot and png files</span>
-<span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.remove</a></span><span class="op">(</span><span class="va">paths</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/13-member-ped.csv"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></span>
+<span><span class="va">gsp_tib</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="va">csv</span><span class="op">)</span></span>
+<span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gsp2dot.html">gsp2dot</a></span><span class="op">(</span>g <span class="op">=</span> <span class="va">gsp_tib</span>, path <span class="op">=</span> <span class="st">"images/13-member-ped"</span><span class="op">)</span></span>
+<span><span class="co"># now, get rid of the dot and png files</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.remove</a></span><span class="op">(</span><span class="va">paths</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p>The tibble specification of that same GSP is printed here:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">GSP</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 11</span></span>
-<span class="co">#&gt;      ind  par1  par2 ipar1 ipar2 hap1  hap2  hpop1 hpop2 sample osample</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 1a    1b    A     A     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2a    2b    A     A     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 3a    3b    B     B     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 4a    4b    A     A     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 5a    5b    B     B     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 6a    6b    B     B     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7     2     3     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s7           1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8     4     5     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s8           1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9     1     7     1     1 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10     7     8     1     1 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s10          1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">11</span>    11     8     6     1     1 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">12</span>    12     9    11     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s12          2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">13</span>    13     1     6     1     1 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s13          1</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">GSP</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 11</span></span></span>
+<span><span class="co">#&gt;      ind  par1  par2 ipar1 ipar2 hap1  hap2  hpop1 hpop2 sample osample</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 1a    1b    A     A     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2a    2b    A     A     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 3a    3b    B     B     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 4a    4b    A     A     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 5a    5b    B     B     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 6a    6b    B     B     <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7     2     3     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s7           1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8     4     5     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s8           1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9     1     7     1     1 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10     7     8     1     1 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s10          1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>    11     8     6     1     1 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>    12     9    11     2     2 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s12          2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span>    13     1     6     1     1 <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    s13          1</span></span></code></pre></div>
 <p>and, a CSV file with the same table in it can be found using:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/13-member-ped.csv"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/13-member-ped.csv"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="a-four-population-gsp--gsp4">A four-population GSP. <code>gsp4</code><a class="anchor" aria-label="anchor" href="#a-four-population-gsp--gsp4"></a>
@@ -568,7 +583,7 @@ between populations A and B then mating with an F1 from populations C
 and D. The tibble is available in the package data object
 <code>gsp4</code>, while the CSV file of it is available at:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/gsp4.csv"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/gsp4.csv"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></span></code></pre></div>
 <p>Here is what it looks like:</p>
 <p><img src="../reference/figures/gsp4-700.png" width="70%" style="display: block; margin: auto;"></p>
 </div>
@@ -584,15 +599,15 @@ different. In our example data for this R package, we have 4 groups. To
 quickly illustrate how many individuals are included in each of these
 example groups:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">I_meta</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span>
-<span class="co">#&gt;   group     n</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Pop1     20</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Pop2     20</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Pop3     18</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Pop4     20</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">I_meta</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<span><span class="co">#&gt;   group     n</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Pop1     20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Pop2     20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Pop3     18</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Pop4     20</span></span></code></pre></div>
 <p>To define how individuals among groups combine to form hybrids, you
 must use a tibble with columns <code>index</code>, <code>pop</code>,
 <code>group</code>, to indicate which of the founding populations (“A”,
@@ -600,13 +615,13 @@ must use a tibble with columns <code>index</code>, <code>pop</code>,
 <code>group</code> column in, for example, <code>I_meta</code>) in your
 genotype data set; thus, the <code>RepPop</code> serves to
 translate/align your <code>I_meta</code> with your <code>GSP</code>.</p>
-<p>Because it is quite likely that you might wish to iterate the
-segregation procedure multiple times in a single simulation—each time
-assigning new genetic material to the founders of the pedigree—you can
-specify that by doing multiple replicates of the procedure as defined in
-the <code>index</code> column. The <code>index</code> column must be of
-type integer, and it must include all values from 1 up to the number of
-simulation replicates desired. Rows with the same value, <span class="math inline">\(i\)</span>, say, of <code>index</code> give the
+<p>If you wish to iterate the segregation procedure multiple times in a
+single simulation—each time assigning new genetic material to the
+founders of the pedigree—you can specify that by doing multiple
+replicates of the procedure as defined in the <code>index</code> column.
+The <code>index</code> column must be of type integer, and it must
+include all values from 1 up to the number of simulation replicates
+desired. Rows with the same value, <span class="math inline">\(i\)</span>, say, of <code>index</code> give the
 desired mappings from founding pops (“A”, “B”, etc) in the GSP to
 different groups in the genotype data for the <span class="math inline">\(i^{\mathrm{th}}\)</span> replicates of the
 simulation.</p>
@@ -624,43 +639,43 @@ the pedigree in <code>GSP</code> (13 individuals, 6 of which are
 founders: 3 from population “A” and 3 from population “B”). For the
 first replicate (<code>index</code> = 1), we might want to map “A” to
 Pop1 and “B” to Pop2, and in the second replicate (<code>index</code> =
-2) we might want to map “A” to Pop4, and “B” to Pop 3. (Note, at this
+2) we might want to map “A” to Pop4, and “B” to Pop 3. Note, at this
 point, genetic material from 3 individuals from each of those
 populations will have been “consumed” from each of these populations and
 segregated, without replacement, into the samples from the genomic
-simulation pedigree.)</p>
+simulation pedigree.</p>
 <p>The <code>RepPop</code> tibble that would specify this is given in
 the package variable <code>RepPop1</code>:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">RepPop1</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 3</span></span>
-<span class="co">#&gt;   index pop   group</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 A     Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 B     Pop2 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     2 A     Pop4 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     2 B     Pop3</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">RepPop1</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 3</span></span></span>
+<span><span class="co">#&gt;   index pop   group</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1 A     Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1 B     Pop2 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     2 A     Pop4 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     2 B     Pop3</span></span></code></pre></div>
 <p>For another example, imagine that we want to do three replicates
 (<code>index</code> = 1:3) creating the admixed individuals sampled from
 the genomic permutation pedigree, <code>gsp4</code>. The RepPop tibble
 for that might look like this:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">RepPop4</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 3</span></span>
-<span class="co">#&gt;    index pop   group</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 A     Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     1 B     Pop2 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     1 C     Pop3 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     1 D     Pop4 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     2 A     Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     2 B     Pop2 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     2 C     Pop3 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     2 D     Pop4 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     3 A     Pop1 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>     3 B     Pop2 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">11</span>     3 C     Pop3 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">12</span>     3 D     Pop4</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">RepPop4</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 3</span></span></span>
+<span><span class="co">#&gt;    index pop   group</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 A     Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     1 B     Pop2 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     1 C     Pop3 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     1 D     Pop4 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     2 A     Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     2 B     Pop2 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     2 C     Pop3 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     2 D     Pop4 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     3 A     Pop1 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>     3 B     Pop2 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>     3 C     Pop3 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>     3 D     Pop4</span></span></code></pre></div>
 <p>Note that this request will consume one individual from each of
 populations 1, 2, 3, and 4 (which are mapped to A, B, C, and D,
 respectively), and will simulate/create 4 admixed individuals.</p>
@@ -669,11 +684,11 @@ respectively), and will simulate/create 4 admixed individuals.</p>
 <div class="section level2">
 <h2 id="segregating-chunks-of-genome-without-replacement">Segregating Chunks of Genome Without Replacement<a class="anchor" aria-label="anchor" href="#segregating-chunks-of-genome-without-replacement"></a>
 </h2>
-<p>Now that we have been through all the input data formats, we can use
-them to segregate chunks of chromosome. Note that this first part does
-not require genotypes. We are just simulating the process by which big
-chunks of chromosomes drop through the pedigrees. The function used for
-this is <code><a href="../reference/segregate.html">segregate()</a></code>. The needed inputs are:</p>
+<p>Now that we have been through all of the input data formats, we can
+use them to segregate chunks of chromosome. Note that this first part
+does not require genotypes. We are just simulating the process by which
+big chunks of chromosomes drop through the pedigrees. The function used
+for this is <code><a href="../reference/segregate.html">segregate()</a></code>. The needed inputs are:</p>
 <ul>
 <li>1 or more genomic permutation pedigrees (like <code>GSP</code> or
 <code>gsp4</code>)</li>
@@ -696,25 +711,25 @@ opportunity to illustrate recombination. Accordingly, we are
 illustrating <code><a href="../reference/segregate.html">segregate()</a></code> with the slightly more complex
 gspComplex, producing F1s, F1BC1s, F2BC1s …</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Input_tibble</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  gpp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">gspComplex</span><span class="op">)</span>,
-  reppop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">RepPopSimpleF1</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="co"># here is what that input object looks like:</span>
-<span class="va">Input_tibble</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 2</span></span>
-<span class="co">#&gt;   gpp               reppop          </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>          </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="color: #949494;">&lt;tibble [7 × 11]&gt;</span> <span style="color: #949494;">&lt;tibble [2 × 3]&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Input_tibble</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  gpp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">gspComplex</span><span class="op">)</span>,</span>
+<span>  reppop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">RepPopSimpleF1</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># here is what that input object looks like:</span></span>
+<span><span class="va">Input_tibble</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 2</span></span></span>
+<span><span class="co">#&gt;   gpp               reppop          </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="color: #949494;">&lt;tibble [7 × 11]&gt;</span> <span style="color: #949494;">&lt;tibble [2 × 3]&gt;</span></span></span></code></pre></div>
 <p>The segregation requested is then carried out, using the
 recombination rates in <code>RecRates</code> like this:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span> <span class="co"># for reproducibility</span>
-<span class="va">Segments</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segregate.html">segregate</a></span><span class="op">(</span>
-  request <span class="op">=</span> <span class="va">Input_tibble</span>,
-  RR <span class="op">=</span> <span class="va">RecRates</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span> <span class="co"># for reproducibility</span></span>
+<span><span class="va">Segments</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segregate.html">segregate</a></span><span class="op">(</span></span>
+<span>  request <span class="op">=</span> <span class="va">Input_tibble</span>,</span>
+<span>  RR <span class="op">=</span> <span class="va">RecRates</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>The output from that is a big tibble. Each row represents one segment
 of genetic material amongst the sampled individuals from the genomic
 permutation pedigrees. Each segment exists in one of the samples
@@ -737,74 +752,76 @@ first look at the results that we have here.</p>
 <p>First, here is a listing of the top of the <code>Segments</code> we
 produced above.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Segments</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 14</span></span>
-<span class="co">#&gt;    chrom_f   gpp index chrom ped_sample_id samp_index gamete_index</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 12          1     1 12    5                      1            1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 17          1     1 17    5                      1            1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 18          1     1 18    5                      1            1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 12          1     1 12    5                      1            2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 17          1     1 17    5                      1            2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 18          1     1 18    5                      1            2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 12          1     1 12    6                      1            1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 17          1     1 17    6                      1            1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 18          1     1 18    6                      1            1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 12          1     1 12    6                      1            2</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 26 more rows, and 7 more variables: gamete_segments &lt;list&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   pop_origin &lt;chr&gt;, rs_founder_haplo &lt;int&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   group_origin &lt;chr&gt;, sim_level_founder_haplo &lt;int&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Segments</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 14</span></span></span>
+<span><span class="co">#&gt;    chrom_f   gpp index chrom ped_sample_id samp_index gamete_index</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 12          1     1 12    5                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 17          1     1 17    5                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 18          1     1 18    5                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 12          1     1 12    5                      1            2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 17          1     1 17    5                      1            2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 18          1     1 18    5                      1            2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 12          1     1 12    6                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 17          1     1 17    6                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 18          1     1 18    6                      1            1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 12          1     1 12    6                      1            2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 26 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 7 more variables: gamete_segments &lt;list&gt;, pop_origin &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   rs_founder_haplo &lt;int&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;, group_origin &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   sim_level_founder_haplo &lt;int&gt;</span></span></span></code></pre></div>
 <p>The table is a little wide, so we will show the first half of the
-columns and then the second half here.</p>
+columns and then the second half.</p>
 <p>First half</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Segments</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">gpp</span><span class="op">:</span><span class="va">pop_origin</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 8</span></span>
-<span class="co">#&gt;      gpp index chrom ped_sample_id samp_index gamete_index gamete_segments</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>         </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1     1 12    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     1     1 17    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     1     1 18    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     1     1 12    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     1     1 17    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     1     1 18    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     1     1 12    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     1     1 17    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     1     1 18    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>     1     1 12    6                      1            2 <span style="color: #949494;">&lt;dbl [3]&gt;</span>      </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 26 more rows, and 1 more variable: pop_origin &lt;chr&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Segments</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">gpp</span><span class="op">:</span><span class="va">pop_origin</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 8</span></span></span>
+<span><span class="co">#&gt;      gpp index chrom ped_sample_id samp_index gamete_index gamete_segments</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1     1 12    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     1     1 17    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     1     1 18    5                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     1     1 12    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     1     1 17    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     1     1 18    5                      1            2 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     1     1 12    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     1     1 17    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     1     1 18    6                      1            1 <span style="color: #949494;">&lt;dbl [2]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>     1     1 12    6                      1            2 <span style="color: #949494;">&lt;dbl [3]&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 26 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: pop_origin &lt;chr&gt;</span></span></span></code></pre></div>
 <p>Second half</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Segments</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">rs_founder_haplo</span><span class="op">:</span><span class="va">group_origin</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 4</span></span>
-<span class="co">#&gt;    rs_founder_haplo start       end group_origin</span>
-<span class="co">#&gt;               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>                1     0 63<span style="text-decoration: underline;">582</span>536  Pop1        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>                1     0 69<span style="text-decoration: underline;">302</span>804  Pop1        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>                2     0 61<span style="text-decoration: underline;">201</span>108  Pop1        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>                1     0 63<span style="text-decoration: underline;">582</span>536  Pop2        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>                1     0 69<span style="text-decoration: underline;">302</span>804  Pop2        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>                2     0 61<span style="text-decoration: underline;">201</span>108  Pop2        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>                4     0 63<span style="text-decoration: underline;">582</span>536  Pop1        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>                4     0 69<span style="text-decoration: underline;">302</span>804  Pop1        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>                3     0 61<span style="text-decoration: underline;">201</span>108  Pop1        </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>                2     0 17<span style="text-decoration: underline;">363</span>020. Pop1        </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 26 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Segments</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">rs_founder_haplo</span><span class="op">:</span><span class="va">group_origin</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 4</span></span></span>
+<span><span class="co">#&gt;    rs_founder_haplo start       end group_origin</span></span>
+<span><span class="co">#&gt;               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>                1     0 63<span style="text-decoration: underline;">582</span>536  Pop1        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>                1     0 69<span style="text-decoration: underline;">302</span>804  Pop1        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>                2     0 61<span style="text-decoration: underline;">201</span>108  Pop1        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>                1     0 63<span style="text-decoration: underline;">582</span>536  Pop2        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>                1     0 69<span style="text-decoration: underline;">302</span>804  Pop2        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>                2     0 61<span style="text-decoration: underline;">201</span>108  Pop2        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>                4     0 63<span style="text-decoration: underline;">582</span>536  Pop1        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>                4     0 69<span style="text-decoration: underline;">302</span>804  Pop1        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>                3     0 61<span style="text-decoration: underline;">201</span>108  Pop1        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>                2     0 17<span style="text-decoration: underline;">363</span>020. Pop1        </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 26 more rows</span></span></span></code></pre></div>
 <div class="section level3">
 <h3 id="visualizing-those-chunks-of-genome">Visualizing those chunks of genome<a class="anchor" aria-label="anchor" href="#visualizing-those-chunks-of-genome"></a>
 </h3>
 <p>Let’s glance at the gspComplex (also illustrated above):</p>
 <p><img src="../reference/figures/13.svg" width="100%" style="display: block; margin: auto;"></p>
-<p>We have a convenience function called
+<p>For convenience, we built a function called
 <code>plot_simulated_chromosome_segments()</code> that let’s you quickly
 visualize the results. Let’s try it here. By adding the RecRates to the
 function call, we get little sparklines showing us the recombination
 rates across the chromosomes.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_simulated_chromomsome_segments.html">plot_simulated_chromomsome_segments</a></span><span class="op">(</span><span class="va">Segments</span>, <span class="va">RecRates</span><span class="op">)</span>
-<span class="va">g</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_simulated_chromomsome_segments.html">plot_simulated_chromomsome_segments</a></span><span class="op">(</span><span class="va">Segments</span>, <span class="va">RecRates</span><span class="op">)</span></span>
+<span><span class="va">g</span></span></code></pre></div>
 <p><img src="gscramble-tutorial_files/figure-html/unnamed-chunk-31-1.png" width="720"></p>
 <p>As you can see, Individual #5 (F1 specified in the GSP above)
 represents full chromosomes from Pop1 and Pop2, without recombination,
@@ -849,30 +866,30 @@ individual.</li>
 <code><a href="https://rdrr.io/r/graphics/segments.html" class="external-link">segments()</a></code>. We could use the variable <code>Segments</code>
 defined above in this vignette example, but we will re-run the
 <code><a href="../reference/segregate.html">segregate()</a></code> step, here, explicitly including the marker
-meta data. (This is helpful because it re-orders chromosomes, if
+meta data. This is helpful because it re-orders chromosomes, if
 necessary, and checks that all the markers are included within the
-bounds of the recombination rate bins).</li>
+bounds of the recombination rate bins.</li>
 <li>The individual meta data,</li>
 <li>The marker meta data,</li>
 <li>The genotype data.</li>
 </ul>
 <p>We invoke it like this:</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span> <span class="co"># for reproducibility</span>
-<span class="co"># re-run segment segregation, explicitly passing it the</span>
-<span class="co"># marker meta data</span>
-<span class="va">Segments2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segregate.html">segregate</a></span><span class="op">(</span>
-  request <span class="op">=</span> <span class="va">Input_tibble</span>,
-  RR <span class="op">=</span> <span class="va">RecRates</span>,
-  MM <span class="op">=</span> <span class="va">M_meta</span>
-<span class="op">)</span>
-
-<span class="va">Markers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segments2markers.html">segments2markers</a></span><span class="op">(</span>
-  Segs <span class="op">=</span> <span class="va">Segments2</span>,
-  Im <span class="op">=</span> <span class="va">I_meta</span>,
-  Mm <span class="op">=</span> <span class="va">M_meta</span>,
-  G <span class="op">=</span> <span class="va">Geno</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span> <span class="co"># for reproducibility</span></span>
+<span><span class="co"># re-run segment segregation, explicitly passing it the</span></span>
+<span><span class="co"># marker meta data</span></span>
+<span><span class="va">Segments2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segregate.html">segregate</a></span><span class="op">(</span></span>
+<span>  request <span class="op">=</span> <span class="va">Input_tibble</span>,</span>
+<span>  RR <span class="op">=</span> <span class="va">RecRates</span>,</span>
+<span>  MM <span class="op">=</span> <span class="va">M_meta</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Markers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segments2markers.html">segments2markers</a></span><span class="op">(</span></span>
+<span>  Segs <span class="op">=</span> <span class="va">Segments2</span>,</span>
+<span>  Im <span class="op">=</span> <span class="va">I_meta</span>,</span>
+<span>  Mm <span class="op">=</span> <span class="va">M_meta</span>,</span>
+<span>  G <span class="op">=</span> <span class="va">Geno</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>The output is a list of three components:</p>
 <ul>
 <li>
@@ -880,42 +897,42 @@ bounds of the recombination rate bins).</li>
 genotypes. The two alleles at each locus are in two adjacent
 columns.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span><span class="op">)</span>
-<span class="co">#&gt; [1]  78 200</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  78 200</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># genotypes of the first 10 individuals at the first 3 markers</span>
-<span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>
-<span class="co">#&gt;       [,1] [,2] [,3] [,4] [,5] [,6]</span>
-<span class="co">#&gt;  [1,] "G"  "G"  NA   NA   "T"  "T" </span>
-<span class="co">#&gt;  [2,] "G"  "G"  NA   NA   "T"  "T" </span>
-<span class="co">#&gt;  [3,] "G"  "G"  "C"  "C"  "T"  "T" </span>
-<span class="co">#&gt;  [4,] "G"  "G"  "C"  "C"  "T"  "C" </span>
-<span class="co">#&gt;  [5,] "G"  "G"  "C"  "C"  "T"  "T" </span>
-<span class="co">#&gt;  [6,] "G"  "G"  "C"  "C"  "T"  "T" </span>
-<span class="co">#&gt;  [7,] "G"  "G"  "C"  "C"  "T"  "T" </span>
-<span class="co">#&gt;  [8,] "G"  "G"  "C"  "C"  "T"  "T" </span>
-<span class="co">#&gt;  [9,] "G"  "G"  NA   NA   "T"  "T" </span>
-<span class="co">#&gt; [10,] "G"  "G"  "C"  "C"  "T"  "T"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># genotypes of the first 10 individuals at the first 3 markers</span></span>
+<span><span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span>
+<span><span class="co">#&gt;       [,1] [,2] [,3] [,4] [,5] [,6]</span></span>
+<span><span class="co">#&gt;  [1,] "G"  "G"  NA   NA   "T"  "T" </span></span>
+<span><span class="co">#&gt;  [2,] "G"  "G"  NA   NA   "T"  "T" </span></span>
+<span><span class="co">#&gt;  [3,] "G"  "G"  "C"  "C"  "T"  "T" </span></span>
+<span><span class="co">#&gt;  [4,] "G"  "G"  "C"  "C"  "T"  "C" </span></span>
+<span><span class="co">#&gt;  [5,] "G"  "G"  "C"  "C"  "T"  "T" </span></span>
+<span><span class="co">#&gt;  [6,] "G"  "G"  "C"  "C"  "T"  "T" </span></span>
+<span><span class="co">#&gt;  [7,] "G"  "G"  "C"  "C"  "T"  "T" </span></span>
+<span><span class="co">#&gt;  [8,] "G"  "G"  "C"  "C"  "T"  "T" </span></span>
+<span><span class="co">#&gt;  [9,] "G"  "G"  NA   NA   "T"  "T" </span></span>
+<span><span class="co">#&gt; [10,] "G"  "G"  "C"  "C"  "T"  "T"</span></span></code></pre></div>
 </li>
 <li>
 <p><code>$ret_ids</code>: a tibble with IDs of the individuals
 corresponding to the rows in the <code>ret_geno</code> matrix.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Individual IDs for the first 10 individuals</span>
-<span class="va">Markers</span><span class="op">$</span><span class="va">ret_ids</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 2</span></span>
-<span class="co">#&gt;    group    indiv           </span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> ped_hybs h-1-1-5-1-1     </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> ped_hybs h-1-1-6-1-2     </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> ped_hybs h-1-1-7-1-3     </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> ped_hybs h-1-1-7-2-4     </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Pop1     permed_ID0016971</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Pop1     permed_ID0016972</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Pop1     permed_ID0017013</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Pop1     permed_ID0023170</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Pop1     permed_ID0035746</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Pop1     permed_ID0035748</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Individual IDs for the first 10 individuals</span></span>
+<span><span class="va">Markers</span><span class="op">$</span><span class="va">ret_ids</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
+<span><span class="co">#&gt;    group    indiv           </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> ped_hybs h-1-1-5-1-1     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> ped_hybs h-1-1-6-1-2     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> ped_hybs h-1-1-7-1-3     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> ped_hybs h-1-1-7-2-4     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Pop1     permed_ID0016971</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Pop1     permed_ID0016972</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Pop1     permed_ID0017013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Pop1     permed_ID0023170</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Pop1     permed_ID0035746</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Pop1     permed_ID0035748</span></span></code></pre></div>
 <p>There are two columns: <code>group</code> and <code>indiv</code>. The
 first rows include the samples simulated as specified in the GSP. Their
 group is <code>ped_hybs</code> (meaning “sampled hybrids from the
@@ -976,35 +993,35 @@ pedigrees (GSP and gsp4 illustrated below) by passing
 parallel column named <code>reppop</code>, which holds the RepPop
 tibbles for each of those genomic permutation pedigrees.</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Input_tibble</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  gpp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">GSP</span>, <span class="va">gsp4</span><span class="op">)</span>,
-  reppop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">RepPop1</span>, <span class="va">RepPop4</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="co"># here is what that input object looks like:</span>
-<span class="va">Input_tibble</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 2</span></span>
-<span class="co">#&gt;   gpp                reppop           </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>           </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="color: #949494;">&lt;tibble [13 × 11]&gt;</span> <span style="color: #949494;">&lt;tibble [4 × 3]&gt;</span> </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="color: #949494;">&lt;tibble [7 × 11]&gt;</span>  <span style="color: #949494;">&lt;tibble [12 × 3]&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Input_tibble</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  gpp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">GSP</span>, <span class="va">gsp4</span><span class="op">)</span>,</span>
+<span>  reppop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">RepPop1</span>, <span class="va">RepPop4</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># here is what that input object looks like:</span></span>
+<span><span class="va">Input_tibble</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 2</span></span></span>
+<span><span class="co">#&gt;   gpp                reppop           </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>           </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> <span style="color: #949494;">&lt;tibble [13 × 11]&gt;</span> <span style="color: #949494;">&lt;tibble [4 × 3]&gt;</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> <span style="color: #949494;">&lt;tibble [7 × 11]&gt;</span>  <span style="color: #949494;">&lt;tibble [12 × 3]&gt;</span></span></span></code></pre></div>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span> <span class="co"># for reproducibility</span>
-<span class="va">Segments</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segregate.html">segregate</a></span><span class="op">(</span>
-  request <span class="op">=</span> <span class="va">Input_tibble</span>,
-  RR <span class="op">=</span> <span class="va">RecRates</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span> <span class="co"># for reproducibility</span></span>
+<span><span class="va">Segments</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segregate.html">segregate</a></span><span class="op">(</span></span>
+<span>  request <span class="op">=</span> <span class="va">Input_tibble</span>,</span>
+<span>  RR <span class="op">=</span> <span class="va">RecRates</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_simulated_chromomsome_segments.html">plot_simulated_chromomsome_segments</a></span><span class="op">(</span><span class="va">Segments</span>, <span class="va">RecRates</span><span class="op">)</span>
-<span class="va">g</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_simulated_chromomsome_segments.html">plot_simulated_chromomsome_segments</a></span><span class="op">(</span><span class="va">Segments</span>, <span class="va">RecRates</span><span class="op">)</span></span>
+<span><span class="va">g</span></span></code></pre></div>
 <p><img src="gscramble-tutorial_files/figure-html/unnamed-chunk-38-1.png" width="720"></p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Markers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segments2markers.html">segments2markers</a></span><span class="op">(</span>
-  Segs <span class="op">=</span> <span class="va">Segments</span>,
-  Im <span class="op">=</span> <span class="va">I_meta</span>,
-  Mm <span class="op">=</span> <span class="va">M_meta</span>,
-  G <span class="op">=</span> <span class="va">Geno</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Markers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segments2markers.html">segments2markers</a></span><span class="op">(</span></span>
+<span>  Segs <span class="op">=</span> <span class="va">Segments</span>,</span>
+<span>  Im <span class="op">=</span> <span class="va">I_meta</span>,</span>
+<span>  Mm <span class="op">=</span> <span class="va">M_meta</span>,</span>
+<span>  G <span class="op">=</span> <span class="va">Geno</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="to-and-from-plink-format">To and From plink Format<a class="anchor" aria-label="anchor" href="#to-and-from-plink-format"></a>
@@ -1021,64 +1038,64 @@ files as illustrated below. If your data is in a binary PLINK format
 export .ped and .map files that are accessible for gscramble’s
 <code><a href="../reference/plink2gscramble.html">plink2gscramble()</a></code>.</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">####### These lines are not portable, since gscrambleTutorial.ped and</span>
-<span class="co">####### gscrambleTutorial.map are not available </span>
-<span class="co"># with .ped / .map files</span>
-
-<span class="co">#plinkIN &lt;- plink2gscramble(ped = "gscrambleTutorial.ped", map = "gscrambleTutorial.map")</span>
-<span class="co">#ls(plinkIN)</span>
-<span class="co">#str(plinkIN)</span>
-
-<span class="co">#dim(plinkIN$Geno)</span>
-<span class="co">#plinkIN$Geno[1:3,1:10]</span>
-
-<span class="co">#rm(plinkIN)</span>
-
-<span class="co"># identifical result with corresponding .ped.gz / .map.gz files</span>
-<span class="co">###### End non-portable lines</span>
-
-<span class="va">map_plink</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/example-plink.map.gz"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span>
-<span class="va">ped_plink</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/example-plink.ped.gz"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span>
-
-<span class="va">plinkIN</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plink2gscramble.html">plink2gscramble</a></span><span class="op">(</span><span class="va">ped_plink</span>, <span class="va">map_plink</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkIN</span><span class="op">$</span><span class="va">Geno</span><span class="op">)</span>
-<span class="co">#&gt; [1]  78 200</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkIN</span><span class="op">$</span><span class="va">I_meta</span><span class="op">)</span>
-<span class="co">#&gt; [1] 78  6</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkIN</span><span class="op">$</span><span class="va">M_meta</span><span class="op">)</span>
-<span class="co">#&gt; [1] 100   4</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">####### These lines are not portable, since gscrambleTutorial.ped and</span></span>
+<span><span class="co">####### gscrambleTutorial.map are not available </span></span>
+<span><span class="co"># with .ped / .map files</span></span>
+<span></span>
+<span><span class="co">#plinkIN &lt;- plink2gscramble(ped = "gscrambleTutorial.ped", map = "gscrambleTutorial.map")</span></span>
+<span><span class="co">#ls(plinkIN)</span></span>
+<span><span class="co">#str(plinkIN)</span></span>
+<span></span>
+<span><span class="co">#dim(plinkIN$Geno)</span></span>
+<span><span class="co">#plinkIN$Geno[1:3,1:10]</span></span>
+<span></span>
+<span><span class="co">#rm(plinkIN)</span></span>
+<span></span>
+<span><span class="co"># identifical result with corresponding .ped.gz / .map.gz files</span></span>
+<span><span class="co">###### End non-portable lines</span></span>
+<span></span>
+<span><span class="va">map_plink</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/example-plink.map.gz"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></span>
+<span><span class="va">ped_plink</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/example-plink.ped.gz"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plinkIN</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plink2gscramble.html">plink2gscramble</a></span><span class="op">(</span><span class="va">ped_plink</span>, <span class="va">map_plink</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkIN</span><span class="op">$</span><span class="va">Geno</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  78 200</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkIN</span><span class="op">$</span><span class="va">I_meta</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 78  6</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkIN</span><span class="op">$</span><span class="va">M_meta</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 100   4</span></span></code></pre></div>
 <p>Or, if you want to just pass the prefix to the ped and the map files,
-you could do like:</p>
+you could use:</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">prefix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/example-plink.map.gz"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span>
-<span class="va">prefix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html" class="external-link">str_replace</a></span><span class="op">(</span><span class="va">prefix</span>, <span class="st">"\\.map\\.gz"</span>, <span class="st">""</span><span class="op">)</span>
-
-<span class="va">plinkPRE</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plink2gscramble.html">plink2gscramble</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="va">prefix</span>, gz_ext <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkPRE</span><span class="op">$</span><span class="va">Geno</span><span class="op">)</span>
-<span class="co">#&gt; [1]  78 200</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkPRE</span><span class="op">$</span><span class="va">I_meta</span><span class="op">)</span>
-<span class="co">#&gt; [1] 78  6</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkPRE</span><span class="op">$</span><span class="va">M_meta</span><span class="op">)</span>
-<span class="co">#&gt; [1] 100   4</span></code></pre></div>
-<p>Where, we use the <code>gz_ext = TRUE</code> option because here, our
-files are gzipped with the <code>.gz</code> extension.</p>
+<code class="sourceCode R"><span><span class="va">prefix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/example-plink.map.gz"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></span>
+<span><span class="va">prefix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html" class="external-link">str_replace</a></span><span class="op">(</span><span class="va">prefix</span>, <span class="st">"\\.map\\.gz"</span>, <span class="st">""</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plinkPRE</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plink2gscramble.html">plink2gscramble</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="va">prefix</span>, gz_ext <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkPRE</span><span class="op">$</span><span class="va">Geno</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  78 200</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkPRE</span><span class="op">$</span><span class="va">I_meta</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 78  6</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plinkPRE</span><span class="op">$</span><span class="va">M_meta</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 100   4</span></span></code></pre></div>
+<p>Here, we use the <code>gz_ext = TRUE</code> option because our files
+are gzipped with the <code>.gz</code> extension.</p>
 <p>When it is time to write out a set of plink files, you can use
 <code><a href="../reference/gscramble2plink.html">gscramble2plink()</a></code>:</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># note, we are only using a temporary file here for the output</span>
-<span class="co"># because this is in the vignette of an R package.  You, yourself,</span>
-<span class="co"># will likely want to write the results to a directory in your</span>
-<span class="co"># home directory somewhere, like `prefix = ~/my_stuff/gscram-sim-1`, etc.</span>
-<span class="va">tfile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="../reference/gscramble2plink.html">gscramble2plink</a></span><span class="op">(</span>
-  I_meta <span class="op">=</span> <span class="va">Markers</span><span class="op">$</span><span class="va">ret_ids</span>,
-  M_meta <span class="op">=</span> <span class="va">M_meta</span>,
-  Geno <span class="op">=</span> <span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span>,
-  prefix <span class="op">=</span> <span class="va">tfile</span>
-<span class="op">)</span>
-<span class="co">#&gt; pedfile written to /var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//RtmpQYrWgm/file73b83a86ab6a.ped</span>
-<span class="co">#&gt; mapfile written to /var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//RtmpQYrWgm/file73b83a86ab6a.map</span>
-<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># note, we are only using a temporary file here for the output</span></span>
+<span><span class="co"># because this is in the vignette of an R package.  You, yourself,</span></span>
+<span><span class="co"># will likely want to write the results to a directory in your</span></span>
+<span><span class="co"># home directory somewhere, like `prefix = ~/my_stuff/gscram-sim-1`, etc.</span></span>
+<span><span class="va">tfile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/gscramble2plink.html">gscramble2plink</a></span><span class="op">(</span></span>
+<span>  I_meta <span class="op">=</span> <span class="va">Markers</span><span class="op">$</span><span class="va">ret_ids</span>,</span>
+<span>  M_meta <span class="op">=</span> <span class="va">M_meta</span>,</span>
+<span>  Geno <span class="op">=</span> <span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span>,</span>
+<span>  prefix <span class="op">=</span> <span class="va">tfile</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; pedfile written to /var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//RtmpLp58VI/file13bb725f05a17.ped</span></span>
+<span><span class="co">#&gt; mapfile written to /var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//RtmpLp58VI/file13bb725f05a17.map</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
   </div>
 
@@ -1099,7 +1116,7 @@ files are gzipped with the <code>.gz</code> extension.</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

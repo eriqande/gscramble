@@ -63,15 +63,15 @@ the population of origin of each segment.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">plot_simulated_chromomsome_segments</span><span class="op">(</span>
-  <span class="va">Segs</span>,
-  RR <span class="op">=</span> <span class="cn">NULL</span>,
-  rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>chrom_ht <span class="op">=</span> <span class="fl">4</span>, chrom_gap <span class="op">=</span> <span class="fl">0.8</span>, spark_gap <span class="op">=</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">RR</span><span class="op">)</span>,
-    spark_box <span class="op">=</span> <span class="fl">2.6</span> <span class="op">*</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">RR</span><span class="op">)</span>, unit_gap <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,
-  bottom_gap <span class="op">=</span> <span class="fl">0.3</span>,
-  spark_thick <span class="op">=</span> <span class="fl">0.2</span>,
-  spark_splat <span class="op">=</span> <span class="fl">0.25</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_simulated_chromomsome_segments</span><span class="op">(</span></span>
+<span>  <span class="va">Segs</span>,</span>
+<span>  RR <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>chrom_ht <span class="op">=</span> <span class="fl">4</span>, chrom_gap <span class="op">=</span> <span class="fl">0.8</span>, spark_gap <span class="op">=</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">RR</span><span class="op">)</span>,</span>
+<span>    spark_box <span class="op">=</span> <span class="fl">2.6</span> <span class="op">*</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">RR</span><span class="op">)</span>, unit_gap <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,</span>
+<span>  bottom_gap <span class="op">=</span> <span class="fl">0.3</span>,</span>
+<span>  spark_thick <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>  spark_splat <span class="op">=</span> <span class="fl">0.25</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -135,10 +135,10 @@ simulation from genome simulation pedigree 1 with index 2.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">s</span> <span class="op">&lt;-</span> <span class="va">example_segments</span></span>
-<span class="r-in"><span class="va">rr</span> <span class="op">&lt;-</span> <span class="va">RecRates</span></span>
-<span class="r-in"><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu">plot_simulated_chromomsome_segments</span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">g_with_sparklines</span> <span class="op">&lt;-</span> <span class="fu">plot_simulated_chromomsome_segments</span><span class="op">(</span><span class="va">s</span>, <span class="va">rr</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="va">example_segments</span></span></span>
+<span class="r-in"><span><span class="va">rr</span> <span class="op">&lt;-</span> <span class="va">RecRates</span></span></span>
+<span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu">plot_simulated_chromomsome_segments</span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">g_with_sparklines</span> <span class="op">&lt;-</span> <span class="fu">plot_simulated_chromomsome_segments</span><span class="op">(</span><span class="va">s</span>, <span class="va">rr</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -153,7 +153,7 @@ simulation from genome simulation pedigree 1 with index 2.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
