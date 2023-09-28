@@ -75,7 +75,12 @@ the individuals.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mat_scramble</span><span class="op">(</span><span class="va">M</span>, preserve_haplotypes <span class="op">=</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">row_groups</span><span class="op">)</span>, row_groups <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mat_scramble</span><span class="op">(</span></span>
+<span>  <span class="va">M</span>,</span>
+<span>  preserve_haplotypes <span class="op">=</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">row_groups</span><span class="op">)</span>,</span>
+<span>  row_groups <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  preserve_individuals <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -98,7 +103,22 @@ They should be in order and complete.
 In practice, these should correspond to the indexes of markers on different
 chromosomes.</p></dd>
 
+
+<dt>preserve_individuals</dt>
+<dd><p>logical indicating whether the genes within
+each individual should stay togeter.</p></dd>
+
 </dl></div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>There is now an additional way of permuting:  if
+<code>preserve_individuals = TRUE</code>, then entire individuals are permuted.
+If <code>preserve_haplotypes = FALSE</code>, then the gene copies at each locus
+are randomly ordered within each individual before permuating them.
+If <code>preserve_haplotypes = TRUE</code> then that initial permutation is not
+done.  This should only be done if the individuals are phased and that
+phasing is reprented in how the genotypes are stored in the matrix.</p>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
