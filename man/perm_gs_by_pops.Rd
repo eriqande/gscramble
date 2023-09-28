@@ -4,7 +4,7 @@
 \alias{perm_gs_by_pops}
 \title{Take the output of rearrange_genos and permute everyone by population}
 \usage{
-perm_gs_by_pops(GS, preserve_haplotypes = FALSE)
+perm_gs_by_pops(GS, preserve_haplotypes = FALSE, preserve_individuals = FALSE)
 }
 \arguments{
 \item{GS}{the tibble that is the output from rearrange_genos}
@@ -13,6 +13,12 @@ perm_gs_by_pops(GS, preserve_haplotypes = FALSE)
 (first allele at an individual on one haplotype and second allele on the
 other) and those haplotypes are preserved in this permutation of
 genomic material amongst the founders.}
+
+\item{preserve_individuals}{If true then whole individuals are permuted
+around the data set and the two gene copies at each locus are randomly
+permuted within each individual.  (If \code{preserve_haplotypes = TRUE} then
+the gene copies are not permuted within individuals. You should only ever
+use \code{preserve_haplotypes = TRUE} if you have phased data.)}
 }
 \description{
 This is done prior to assign random genomic fragments of individuals in the

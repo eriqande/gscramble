@@ -4,7 +4,14 @@
 \alias{segments2markers}
 \title{Map alleles from scrambled founders to the sampled segments from a GSP.}
 \usage{
-segments2markers(Segs, Im, Mm, G)
+segments2markers(
+  Segs,
+  Im,
+  Mm,
+  G,
+  preserve_haplotypes = FALSE,
+  preserve_individuals = FALSE
+)
 }
 \arguments{
 \item{Segs}{the simulated segments. A tibble like that returned from
@@ -20,6 +27,17 @@ with columns \code{chrom}, \code{pos}, and \code{variant_id}.}
 a character matrix.  Each row is an individual, and each pair of columns are the
 alleles at a locus.  Thus it is N x 2L where N is the number of individuals
 and L is the number of markers.}
+
+\item{preserve_haplotypes}{If true then the Geno data is assumed phased
+(first allele at an individual on one haplotype and second allele on the
+other) and those haplotypes are preserved in this permutation of
+genomic material amongst the founders.}
+
+\item{preserve_individuals}{If true then whole individuals are permuted
+around the data set and the two gene copies at each locus are randomly
+permuted within each individual.  (If \code{preserve_haplotypes = TRUE} then
+the gene copies are not permuted within individuals. You should only ever
+use \code{preserve_haplotypes = TRUE} if you have phased data.)}
 }
 \description{
 Map alleles from scrambled founders to the sampled segments from a GSP.

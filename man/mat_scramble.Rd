@@ -4,7 +4,12 @@
 \alias{mat_scramble}
 \title{Scramble a matrix of genotype data}
 \usage{
-mat_scramble(M, preserve_haplotypes = !is.null(row_groups), row_groups = NULL)
+mat_scramble(
+  M,
+  preserve_haplotypes = !is.null(row_groups),
+  row_groups = NULL,
+  preserve_individuals = FALSE
+)
 }
 \arguments{
 \item{M}{a matrix with L rows (number of markers) and 2 * N columns
@@ -19,6 +24,9 @@ that are all in the same groups.  For example: \code{list(1:10, 11:15, 16:30)}.
 They should be in order and complete.
 In practice, these should correspond to the indexes of markers on different
 chromosomes.}
+
+\item{preserve_individuals}{logical indicating whether the genes within
+each individual should stay togeter.}
 }
 \description{
 This function assumes that M is a matrix with L rows (number of markers) and
@@ -31,6 +39,15 @@ scrambled amongst the samples.  In the second way, just the columns are
 permuted.  This preserves haplotypes in the data, if there are any.
 The second approach should only be used if haplotypes are inferred in
 the individuals.
+}
+\details{
+There is now an additional way of permuting:  if
+\code{preserve_individuals = TRUE}, then entire individuals are permuted.
+If \code{preserve_haplotypes = FALSE}, then the gene copies at each locus
+are randomly ordered within each individual before permuating them.
+If \code{preserve_haplotypes = TRUE} then that initial permutation is not
+done.  This should only be done if the individuals are phased and that
+phasing is reprented in how the genotypes are stored in the matrix.
 }
 \examples{
 # make a matrix with alleles named as I.M.g, where I is individual

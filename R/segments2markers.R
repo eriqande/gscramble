@@ -10,6 +10,7 @@
 #' a character matrix.  Each row is an individual, and each pair of columns are the
 #' alleles at a locus.  Thus it is N x 2L where N is the number of individuals
 #' and L is the number of markers.
+#' @inheritParams perm_gs_by_pops
 #' @export
 #' @examples
 #' #### First, get input segments for the function ####
@@ -42,7 +43,7 @@
 #' # this uses several package data objects that are there for examples
 #' # and illustration.
 #' s2m_result <- segments2markers(segs, I_meta, M_meta, Geno)
-segments2markers <- function(Segs, Im, Mm, G) {
+segments2markers <- function(Segs, Im, Mm, G, preserve_haplotypes = FALSE, preserve_individuals = FALSE) {
 
 
   # first off, make sure that the request makes sense in terms of
@@ -73,7 +74,7 @@ segments2markers <- function(Segs, Im, Mm, G) {
   trueQs <- computeQs_from_segments(Segs)
 
   # scramble by pops
-  GS <- perm_gs_by_pops(GS_input)
+  GS <- perm_gs_by_pops(GS_input, preserve_haplotypes = preserve_haplotypes, preserve_individuals = preserve_individuals)
 
   # do this if TEMPORARILY NOT-SCRAMBLING WHILE TESTING
   #GS <- GS_input
