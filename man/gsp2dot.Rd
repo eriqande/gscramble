@@ -51,7 +51,7 @@ a dot file to be rendered into a graph using the dot command
 from the GraphViz package.  You can easily get GraphViz using Miniconda
 or check out the GraphViz downloads page.  If you have the dot
 executable in your PATH, then dot will be run on the dot file
-and an SVG and a PNG image of the graph.
+and an SVG, an EPS, and a PNG image of the graph will be produced.
 }
 \details{
 It can be tricky knowing whether or not R or Rstudio will read

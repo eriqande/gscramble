@@ -7,7 +7,7 @@
 #' from the GraphViz package.  You can easily get GraphViz using Miniconda
 #' or check out the GraphViz downloads page.  If you have the dot
 #' executable in your PATH, then dot will be run on the dot file
-#' and an SVG and a PNG image of the graph.
+#' and an SVG, an EPS, and a PNG image of the graph will be produced.
 #' @param g a GSP tibble.
 #' @param path the path to the file prefix to use (to this will be appended
 #' .dot, and .png or .svg, if dot is on your system). By default these
@@ -145,17 +145,20 @@ gsp2dot <- function(
   if(Sys.which("dot") != "") {
     PNG <- paste0(BASE, ".png")
     SVG <- paste0(BASE, ".svg")
+    EPS <- paste0(BASE, ".eps")
     dot <- basename(ret)
     CALL <- paste(
       "cd ", DIR,
       "; dot -Tpng ", dot, " > ", PNG,
-      "; dot -Tsvg ", dot, " > ", SVG
+      "; dot -Tsvg ", dot, " > ", SVG,
+      "; dot -Tps " , dot, " > ", EPS
     )
     system(CALL)
 
     ret[2] <- paste0(file, ".png")
     ret[3] <- paste0(file, ".svg")
-    names(ret) <- c("dot", "png", "svg")
+    ret[4] <- paste0(file, ".eps")
+    names(ret) <- c("dot", "png", "svg", "eps")
   } else {
     message("Cannot find dot on the system path. Returning the path to just the dot file, but not the rendered png and svg files.")
   }

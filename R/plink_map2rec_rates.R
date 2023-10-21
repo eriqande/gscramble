@@ -90,9 +90,9 @@ plink_map2rec_rates <- function(
     group_by(chrom) %>%
     mutate(
       start_pos = lag(bp + 1, default = 1),
-      end_pos = bp,
+      end_pos = bp + 2 * (bp == max(bp)), # bit nasty---the last bin endpoint must be beyond the SNP, but exactly one base pair more than chrom_length
       rec_prob = morgans - lag(morgans, default = 0),
-      chrom_len = max(bp) - 1
+      chrom_len = max(bp) + 1
     ) %>%
     ungroup() %>%
     select(chrom, chrom_len, start_pos, end_pos, rec_prob) %>%
