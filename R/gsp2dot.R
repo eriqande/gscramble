@@ -1,5 +1,3 @@
-
-
 #' Write a dot file to represent a genome simulation pedigree
 #'
 #' This takes the tibble representation of a GSP and writes it to
@@ -7,7 +5,7 @@
 #' from the GraphViz package.  You can easily get GraphViz using Miniconda
 #' or check out the GraphViz downloads page.  If you have the dot
 #' executable in your PATH, then dot will be run on the dot file
-#' and an SVG, an EPS, and a PNG image of the graph will be produced.
+#' and an SVG and a PNG image of the graph.
 #' @param g a GSP tibble.
 #' @param path the path to the file prefix to use (to this will be appended
 #' .dot, and .png or .svg, if dot is on your system). By default these
@@ -42,31 +40,31 @@
 #' paths
 #'
 gsp2dot <- function(
-  g,
-  path = file.path(tempfile(), "file_prefix"),
-  edge_label_font_size = 18,
-  haplo_origin_colors = c(
-    "lightblue",
-    "orange",
-    "blue",
-    "green",
-    "cadetblue",
-    "dodgerblue3",
-    "darkolivegreen1",
-    "forestgreen",
-    "lightpink",
-    "red2",
-    "sandybrown",
-    "orangered",
-    "plum3",
-    "purple4",
-    "palegoldenrod",
-    "peru"
-  ),
-  sam_node_color = "violet",
-  sample_edge_label_color = "purple",
-  parent_edge_label_color = "red"
-  ) {
+    g,
+    path = file.path(tempfile(), "file_prefix"),
+    edge_label_font_size = 18,
+    haplo_origin_colors = c(
+      "lightblue",
+      "orange",
+      "blue",
+      "green",
+      "cadetblue",
+      "dodgerblue3",
+      "darkolivegreen1",
+      "forestgreen",
+      "lightpink",
+      "red2",
+      "sandybrown",
+      "orangered",
+      "plum3",
+      "purple4",
+      "palegoldenrod",
+      "peru"
+    ),
+    sam_node_color = "violet",
+    sample_edge_label_color = "purple",
+    parent_edge_label_color = "red"
+) {
 
   # get the path to the output files and make the directory if necessary
   DIR <- dirname(path)
@@ -79,8 +77,8 @@ gsp2dot <- function(
   shape_stuff <- tibble(
     node_type = c("hap", "ind", "sam"),
     shape_text = c("shape=invtriangle, regular=1, height=0.56, fixedsize=true",
-             "shape=box, regular=1, height=0.86, fixedsize=true",
-             glue("shape=hexagon, regular=1, height=0.86, fixedsize=true, style=filled, fillcolor={sam_node_color}"))
+                   "shape=box, regular=1, height=0.86, fixedsize=true",
+                   glue("shape=hexagon, regular=1, height=0.86, fixedsize=true, style=filled, fillcolor={sam_node_color}"))
   )
 
   # get a tibble of all the different types of nodes, and add the
@@ -125,7 +123,7 @@ gsp2dot <- function(
 
   sam_edges <- g %>%
     filter(!is.na(sample)) %>%
-      mutate(edges = glue("\"{ind}\" -> \"{sample}\" [dir=none, style=solid, label = \" {osample}\", fontsize={edge_label_font_size}, fontcolor={sample_edge_label_color}];"))
+    mutate(edges = glue("\"{ind}\" -> \"{sample}\" [dir=none, style=solid, label = \" {osample}\", fontsize={edge_label_font_size}, fontcolor={sample_edge_label_color}];"))
 
   #### NOW, JUST WRITE THAT OUT ####
   ret <- paste0(file, ".dot")
@@ -139,26 +137,23 @@ gsp2dot <- function(
     file = ret,
     sep = "\n",
     "}"
-    )
+  )
 
   ### Now, if dot is on the system make the png and the svg
   if(Sys.which("dot") != "") {
     PNG <- paste0(BASE, ".png")
     SVG <- paste0(BASE, ".svg")
-    EPS <- paste0(BASE, ".eps")
     dot <- basename(ret)
     CALL <- paste(
       "cd ", DIR,
       "; dot -Tpng ", dot, " > ", PNG,
-      "; dot -Tsvg ", dot, " > ", SVG,
-      "; dot -Tps " , dot, " > ", EPS
+      "; dot -Tsvg ", dot, " > ", SVG
     )
     system(CALL)
 
     ret[2] <- paste0(file, ".png")
     ret[3] <- paste0(file, ".svg")
-    ret[4] <- paste0(file, ".eps")
-    names(ret) <- c("dot", "png", "svg", "eps")
+    names(ret) <- c("dot", "png", "svg")
   } else {
     message("Cannot find dot on the system path. Returning the path to just the dot file, but not the rendered png and svg files.")
   }
