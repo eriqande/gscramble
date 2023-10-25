@@ -7,9 +7,9 @@ gscramble
 [![pkgdown](https://github.com/eriqande/gscramble/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/eriqande/gscramble/actions/workflows/pkgdown.yaml)
 <!-- badges: end -->
 
-This is an R package under development.
-
-We are pretty much done with it and just need to update this README.
+This is an R package for simulating individuals that are admixed between
+different populations according to a pedigree. To do so it uses sampling
+without replacement from samples taken from each population.
 
 You can read the documentation for it at:
 <https://eriqande.github.io/gscramble/>
@@ -17,12 +17,19 @@ You can read the documentation for it at:
 You can install in from GitHub:
 
 ``` r
-devtools::install_github("eriqande/gscramble", build_opts = c("--no-resave-data"))
+remotes::install_github(
+  "eriqande/gscramble", 
+  build_opts = c("--no-resave-data"), 
+  build_vignettes = TRUE, 
+  build_manual = TRUE,
+  quiet = FALSE
+)
 ```
 
 Once that is installed you can read the vignettes:
 
 ``` r
 vignette("gscramble-tutorial")  # information on input data objects
-vignette("gscramble-data-in-out")  # not yet written (reading/writing to PLINK, etc.)
+vignette("about-createGSP")  # a function to make simple genomic simulation pedigrees
+vignette("permutation-options")  # about the different options for permuting
 ```
