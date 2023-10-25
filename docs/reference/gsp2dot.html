@@ -71,6 +71,8 @@ and an SVG and a PNG image of the graph.</p>
 <span>  <span class="va">g</span>,</span>
 <span>  path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"file_prefix"</span><span class="op">)</span>,</span>
 <span>  edge_label_font_size <span class="op">=</span> <span class="fl">18</span>,</span>
+<span>  indiv_node_label_font_size <span class="op">=</span> <span class="fl">18</span>,</span>
+<span>  sample_node_label_font_size <span class="op">=</span> <span class="fl">18</span>,</span>
 <span>  haplo_origin_colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lightblue"</span>, <span class="st">"orange"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"cadetblue"</span>,</span>
 <span>    <span class="st">"dodgerblue3"</span>, <span class="st">"darkolivegreen1"</span>, <span class="st">"forestgreen"</span>, <span class="st">"lightpink"</span>, <span class="st">"red2"</span>, <span class="st">"sandybrown"</span>,</span>
 <span>    <span class="st">"orangered"</span>, <span class="st">"plum3"</span>, <span class="st">"purple4"</span>, <span class="st">"palegoldenrod"</span>, <span class="st">"peru"</span><span class="op">)</span>,</span>
@@ -96,6 +98,14 @@ like <code>my_path/myfile</code> to get the output file <code>mypath.myfile.dot<
 
 <dt>edge_label_font_size</dt>
 <dd><p>The font size of the number annotations along the edges.</p></dd>
+
+
+<dt>indiv_node_label_font_size</dt>
+<dd><p>the font size of the labels for the individual nodes</p></dd>
+
+
+<dt>sample_node_label_font_size</dt>
+<dd><p>the font size of the labels for the individual nodes</p></dd>
 
 
 <dt>haplo_origin_colors</dt>
@@ -152,12 +162,12 @@ on your system.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu">gsp2dot</span><span class="op">(</span><span class="va">g</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">paths</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                              dot </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "/var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//RtmpMcq6oY/file13b0a18a1dc97/file_prefix.dot" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                              png </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "/var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//RtmpMcq6oY/file13b0a18a1dc97/file_prefix.png" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                              svg </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "/var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//RtmpMcq6oY/file13b0a18a1dc97/file_prefix.svg" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                             dot </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "/var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//Rtmpg9fdpY/filec2df760d7b31/file_prefix.dot" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                             png </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "/var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//Rtmpg9fdpY/filec2df760d7b31/file_prefix.png" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                             svg </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "/var/folders/xg/mz_qt7q54yv_hwzvhskwx2c00000gp/T//Rtmpg9fdpY/filec2df760d7b31/file_prefix.svg" </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
