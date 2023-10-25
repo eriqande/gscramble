@@ -28,14 +28,18 @@ a character matrix.  Each row is an individual, and each pair of columns are the
 alleles at a locus.  Thus it is N x 2L where N is the number of individuals
 and L is the number of markers.}
 
-\item{preserve_haplotypes}{If true then the Geno data is assumed phased
+\item{preserve_haplotypes}{If TRUE then the Geno data is assumed phased
 (first allele at an individual on one haplotype and second allele on the
 other) and those haplotypes are preserved in this permutation of
 genomic material amongst the founders.}
 
-\item{preserve_individuals}{If true then whole individuals are permuted
+\item{preserve_individuals}{If TRUE then whole individuals are permuted
 around the data set and the two gene copies at each locus are randomly
-permuted within each individual.  (If \code{preserve_haplotypes = TRUE} then
+permuted within each individual.  If \code{preserve_individuals = "BY_CHROM"},
+then the the two copies of each chromosome in an individual are permuted
+together.  Thus a permuted individual may have two copies of one chromosome
+from one individual, and two copies of another chromosome from a different
+individual.  (If \code{preserve_haplotypes = TRUE} then
 the gene copies are not permuted within individuals. You should only ever
 use \code{preserve_haplotypes = TRUE} if you have phased data.)}
 }

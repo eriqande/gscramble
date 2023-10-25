@@ -17,7 +17,7 @@
 #' are randomly ordered within each individual before permuating them.
 #' If `preserve_haplotypes = TRUE` then that initial permutation is not
 #' done.  This should only be done if the individuals are phased and that
-#' phasing is reprented in how the genotypes are stored in the matrix.
+#' phasing is represented in how the genotypes are stored in the matrix.
 #' @param M a matrix with L rows (number of markers) and 2 * N columns
 #' where N is the number of individuals. Missing data must be coded
 #' as NA
@@ -54,7 +54,18 @@
 #'
 #' # preserving haplotypes with markers 1-3 on one chromosome and 4-7 on another
 #' S3 <- mat_scramble(Mat, row_groups = list(1:3, 4:7))
-mat_scramble <- function(M, preserve_haplotypes = !is.null(row_groups), row_groups = NULL, preserve_individuals = FALSE) {
+#'
+#' # preserving individuals, but not haplotypes, with two chromosomes
+#' S4 <- mat_scramble(Mat, row_groups = list(1:3, 4:7), preserve_individuals = TRUE)
+#'
+#' # preserving individuals by chromosome, but not haplotypes, with two chromosomes
+#' S5 <- mat_scramble(Mat, row_groups = list(1:3, 4:7), preserve_individuals = "BY_CHROM")
+#'
+#' # preserving individuals by chromosome, and preserving haplotypes, with two chromosomes
+#' S6 <- mat_scramble(Mat, row_groups = list(1:3, 4:7),
+#'                  preserve_individuals = "BY_CHROM", preserve_haplotypes = TRUE)
+
+mat_scramble <- function(M, preserve_haplotypes = FALSE, row_groups = NULL, preserve_individuals = FALSE) {
   if(!is.null(row_groups)) {
     idxs <- unlist(row_groups)
     if(any(duplicated(idxs))) stop("Duplicated values in row_groups.")
@@ -63,7 +74,7 @@ mat_scramble <- function(M, preserve_haplotypes = !is.null(row_groups), row_grou
 
 
   # here is a block that will return if preserve_individuals is TRUE
-  if(preserve_individuals == TRUE) {
+  if(preserve_individuals == TRUE || preserve_individuals == "BY_CHROM") {
     if(preserve_haplotypes == FALSE) {
       # cycle over individuals and sample the gene copies at each locus within them
       M2 <- lapply(seq(1, ncol(M), by = 2), function(i) {  # cycle over individuals
@@ -75,11 +86,28 @@ mat_scramble <- function(M, preserve_haplotypes = !is.null(row_groups), row_grou
       M2 <- M
     }
 
-    # now, we permute the individuals around M2 and return
-    num_ind <- ncol(M2) / 2
-    ind_ord <- sample(1:num_ind)
-    ind_pick <- (2 * rep(ind_ord, each = 2)) - c(1, 0)
-    return(M2[, ind_pick])
+    if(preserve_individuals == TRUE || (preserve_individuals == "BY_CHROM" && is.null(row_groups))) {
+      # now, we permute the individuals around M2 and return
+      num_ind <- ncol(M2) / 2
+      ind_ord <- sample(1:num_ind)
+      ind_pick <- (2 * rep(ind_ord, each = 2)) - c(1, 0)
+      return(M2[, ind_pick])
+    }
+
+    if(preserve_individuals == "BY_CHROM") {
+      # now, we permute the individuals around M2 and return
+      num_ind <- ncol(M2) / 2
+      ret <- lapply(row_groups, function(x) {
+        ind_ord <- sample(1:num_ind)
+        ind_pick <- (2 * rep(ind_ord, each = 2)) - c(1, 0)
+        M2[x, ind_pick]
+      }) %>%
+        do.call(rbind, args = .)
+
+      return(ret)
+    }
+
+
   }
 
 

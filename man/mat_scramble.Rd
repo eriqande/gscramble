@@ -6,7 +6,7 @@
 \usage{
 mat_scramble(
   M,
-  preserve_haplotypes = !is.null(row_groups),
+  preserve_haplotypes = FALSE,
   row_groups = NULL,
   preserve_individuals = FALSE
 )
@@ -47,7 +47,7 @@ If \code{preserve_haplotypes = FALSE}, then the gene copies at each locus
 are randomly ordered within each individual before permuating them.
 If \code{preserve_haplotypes = TRUE} then that initial permutation is not
 done.  This should only be done if the individuals are phased and that
-phasing is reprented in how the genotypes are stored in the matrix.
+phasing is represented in how the genotypes are stored in the matrix.
 }
 \examples{
 # make a matrix with alleles named as I.M.g, where I is individual
@@ -71,4 +71,14 @@ S2 <- mat_scramble(Mat, preserve_haplotypes = TRUE)
 
 # preserving haplotypes with markers 1-3 on one chromosome and 4-7 on another
 S3 <- mat_scramble(Mat, row_groups = list(1:3, 4:7))
+
+# preserving individuals, but not haplotypes, with two chromosomes
+S4 <- mat_scramble(Mat, row_groups = list(1:3, 4:7), preserve_individuals = TRUE)
+
+# preserving individuals by chromosome, but not haplotypes, with two chromosomes
+S5 <- mat_scramble(Mat, row_groups = list(1:3, 4:7), preserve_individuals = "BY_CHROM")
+
+# preserving individuals by chromosome, and preserving haplotypes, with two chromosomes
+S6 <- mat_scramble(Mat, row_groups = list(1:3, 4:7),
+                 preserve_individuals = "BY_CHROM", preserve_haplotypes = TRUE)
 }

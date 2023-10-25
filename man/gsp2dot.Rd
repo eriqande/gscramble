@@ -8,6 +8,8 @@ gsp2dot(
   g,
   path = file.path(tempfile(), "file_prefix"),
   edge_label_font_size = 18,
+  indiv_node_label_font_size = 18,
+  sample_node_label_font_size = 18,
   haplo_origin_colors = c("lightblue", "orange", "blue", "green", "cadetblue",
     "dodgerblue3", "darkolivegreen1", "forestgreen", "lightpink", "red2", "sandybrown",
     "orangered", "plum3", "purple4", "palegoldenrod", "peru"),
@@ -26,6 +28,10 @@ write to user home directories by default.  Supply a path with prefix,
 like \code{my_path/myfile} to get the output file \code{mypath.myfile.dot}}
 
 \item{edge_label_font_size}{The font size of the number annotations along the edges.}
+
+\item{indiv_node_label_font_size}{the font size of the labels for the individual nodes}
+
+\item{sample_node_label_font_size}{the font size of the labels for the individual nodes}
 
 \item{haplo_origin_colors}{The colors for different origins of haplotypes.
 By default there are only sixteen.  If you have more populations that founders
@@ -51,7 +57,7 @@ a dot file to be rendered into a graph using the dot command
 from the GraphViz package.  You can easily get GraphViz using Miniconda
 or check out the GraphViz downloads page.  If you have the dot
 executable in your PATH, then dot will be run on the dot file
-and an SVG, an EPS, and a PNG image of the graph will be produced.
+and an SVG and a PNG image of the graph.
 }
 \details{
 It can be tricky knowing whether or not R or Rstudio will read

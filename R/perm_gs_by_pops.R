@@ -3,13 +3,17 @@
 #' This is done prior to assign random genomic fragments of individuals in the
 #' sample to the founders of the GSP, to be dropped to the samples.
 #' @param GS the tibble that is the output from rearrange_genos
-#' @param preserve_haplotypes If true then the Geno data is assumed phased
+#' @param preserve_haplotypes If TRUE then the Geno data is assumed phased
 #' (first allele at an individual on one haplotype and second allele on the
 #' other) and those haplotypes are preserved in this permutation of
 #' genomic material amongst the founders.
-#' @param preserve_individuals If true then whole individuals are permuted
+#' @param preserve_individuals If TRUE then whole individuals are permuted
 #' around the data set and the two gene copies at each locus are randomly
-#' permuted within each individual.  (If `preserve_haplotypes = TRUE` then
+#' permuted within each individual.  If `preserve_individuals = "BY_CHROM"`,
+#' then the the two copies of each chromosome in an individual are permuted
+#' together.  Thus a permuted individual may have two copies of one chromosome
+#' from one individual, and two copies of another chromosome from a different
+#' individual.  (If `preserve_haplotypes = TRUE` then
 #' the gene copies are not permuted within individuals. You should only ever
 #' use `preserve_haplotypes = TRUE` if you have phased data.)
 #' @export
@@ -23,7 +27,9 @@ perm_gs_by_pops <- function(GS, preserve_haplotypes = FALSE, preserve_individual
 
   row_groups <- NULL
 
-  if(preserve_individuals == FALSE && preserve_haplotypes == TRUE) {
+
+  if((preserve_individuals == FALSE && preserve_haplotypes == TRUE) || preserve_individuals == "BY_CHROM") {
+    # get a row_groups list that gives the indexes of markers on different chromosomes
     Mm = GS$M[[1]]
     row_groups <- Mm %>%
       ungroup() %>%

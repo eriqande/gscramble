@@ -13,6 +13,8 @@
 #' write to user home directories by default.  Supply a path with prefix,
 #' like `my_path/myfile` to get the output file `mypath.myfile.dot`
 #' @param edge_label_font_size The font size of the number annotations along the edges.
+#' @param indiv_node_label_font_size the font size of the labels for the individual nodes
+#' @param sample_node_label_font_size the font size of the labels for the individual nodes
 #' @param haplo_origin_colors The colors for different origins of haplotypes.
 #' By default there are only sixteen.  If you have more populations that founders
 #' may come from, you should provide a vector with more than 16 colors.
@@ -43,6 +45,8 @@ gsp2dot <- function(
     g,
     path = file.path(tempfile(), "file_prefix"),
     edge_label_font_size = 18,
+    indiv_node_label_font_size = 18,
+    sample_node_label_font_size = 18,
     haplo_origin_colors = c(
       "lightblue",
       "orange",
@@ -77,8 +81,8 @@ gsp2dot <- function(
   shape_stuff <- tibble(
     node_type = c("hap", "ind", "sam"),
     shape_text = c("shape=invtriangle, regular=1, height=0.56, fixedsize=true",
-                   "shape=box, regular=1, height=0.86, fixedsize=true",
-                   glue("shape=hexagon, regular=1, height=0.86, fixedsize=true, style=filled, fillcolor={sam_node_color}"))
+                   glue("shape=box, regular=1, height=0.86, fixedsize=true, fontsize={indiv_node_label_font_size}"),
+                   glue("shape=hexagon, regular=1, height=0.86, fixedsize=true, style=filled, fillcolor={sam_node_color}, fontsize={sample_node_label_font_size}"))
   )
 
   # get a tibble of all the different types of nodes, and add the
