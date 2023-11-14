@@ -4,7 +4,15 @@
 \alias{create_GSP}
 \title{Create a GSP from user inputs about what type of hybrids from which populations to create hybrids}
 \usage{
-create_GSP(pop1, pop2, F1 = F, F2 = F, F1B = F, F1B2 = F)
+create_GSP(
+  pop1,
+  pop2,
+  F1 = F,
+  F2 = F,
+  F1B = F,
+  F1B2 = F,
+  AllowSinglePop = FALSE
+)
 }
 \arguments{
 \item{pop1}{character name for population 1}
@@ -18,6 +26,9 @@ create_GSP(pop1, pop2, F1 = F, F2 = F, F1B = F, F1B2 = F)
 \item{F1B}{logical indicating whether you would like to have sampled F1 backcross hybrids in the output.}
 
 \item{F1B2}{logical indicating whether you would like to have sampled F1 backcross 2 hybrids in the output.}
+
+\item{AllowSinglePop}{Set to true if you want all the founders from just a single population.  This
+has some use cases...}
 }
 \value{
 This function returns a GSP in tibble format with the user argument for pop1 and pop2 autopopulated

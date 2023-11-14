@@ -14,6 +14,7 @@ reference:
   - create_GSP
   - segregate
   - segments2markers
+  - renumber_GSP
 - title: "Functions for summarizing and visualizing simulation results or inputs"
   desc: >
     These are just a few functions to summarize the results from
@@ -26,11 +27,12 @@ reference:
   desc: >
     These functions help to get data in PLINK format into
     gscramble, and also converting gscramble objects into
-    PLINK files.
+    PLINK or newhybrids input files.
 - contents:
   - plink2gscramble
   - gscramble2plink
   - plink_map2rec_rates
+  - gscramble2newhybrids
 - title: "Functions for checking the formatting and validity of inputs"
   desc: >
     These functions, some of which are used internally by other functions,

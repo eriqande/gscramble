@@ -15,6 +15,8 @@
 #' @param F2 logical indicating whether you would like to have sampled F2 hybrids in the output.
 #' @param F1B logical indicating whether you would like to have sampled F1 backcross hybrids in the output.
 #' @param F1B2 logical indicating whether you would like to have sampled F1 backcross 2 hybrids in the output.
+#' @param AllowSinglePop Set to true if you want all the founders from just a single population.  This
+#' has some use cases...
 #' @return This function returns a GSP in tibble format with the user argument for pop1 and pop2 autopopulated
 #' in the hpop1 and hpop2 columns.
 #' @export
@@ -25,13 +27,13 @@
 #' #create a GSP that generates hybrids and samples F1s, F2s, F1Bs, F1B2s from pops A and B
 #' gsp <- create_GSP("Pop_X", "Pop_Z", F1 = TRUE, F2 = TRUE, F1B = TRUE, F1B2 = TRUE)
 #'
-create_GSP<-function(pop1,pop2,F1=F,F2=F,F1B=F,F1B2=F){
+create_GSP<-function(pop1,pop2,F1=F,F2=F,F1B=F,F1B2=F, AllowSinglePop = FALSE){
 
   Mateparams<-c(F1,F2,F1B,F1B2)
   GSP_index<-sum(Mateparams*c(1,2,4,8))
 
   if(GSP_index == 0)stop("Error: At least one parameter (F1, F2, F1B, or F1B2) must be TRUE")
-  if(pop1 == pop2)stop("Error: You must select two different populations for the pop1 and pop2 parameters")
+  if(pop1 == pop2 && !AllowSinglePop)stop("Error: You must select two different populations for the pop1 and pop2 parameters")
 
   GSP<-GSP_opts[[GSP_index]]
   GSP[,c("hpop1", "hpop2")] <- lapply(GSP[,c("hpop1", "hpop2")], gsub, pattern = "p1", replacement = pop1)

@@ -11,6 +11,10 @@
 #' included, the recombination rates in cM/Mb are plotted atop the chromosomes
 #' as a little sparkline. If it is not included, then the there are
 #' no little sparklines above the chromosomes.
+#' @param fill_by_group_origin If FALSE (the default) the fill color of segments
+#' is mapped to the pop_origin, which is where the founder haplotypes came from according
+#' to the `hpop1` and `hpop2` columns in the GSP specification. If you set this
+#' to TRUE, then we map the "group" column of the reppop to fill.
 #' @param rel_heights a vector the the relative heights of the different
 #' elements of each chromosomal unit of the plot.  This is a named vector
 #' with the following elements, listed in order of the bottom of each
@@ -47,6 +51,7 @@
 plot_simulated_chromomsome_segments <- function(
   Segs,
   RR = NULL,
+  fill_by_group_origin = FALSE,
   rel_heights = c(
     chrom_ht = 4,
     chrom_gap = 0.8,
@@ -101,6 +106,10 @@ plot_simulated_chromomsome_segments <- function(
       chr_xmax = end
     )
 
+  fill_var = "pop_origin"
+  if(fill_by_group_origin) {
+    fill_var = "group_origin"
+  }
   g <- ggplot() +
     geom_rect(
       data = S2,
@@ -109,7 +118,7 @@ plot_simulated_chromomsome_segments <- function(
         xmax = chr_xmax/1e6,
         ymin = chr_ymin,
         ymax = chr_ymax,
-        fill = pop_origin
+        fill = .data[[fill_var]]
       )
     ) +
     xlab("bp in Megabases") +

@@ -7,6 +7,7 @@
 plot_simulated_chromomsome_segments(
   Segs,
   RR = NULL,
+  fill_by_group_origin = FALSE,
   rel_heights = c(chrom_ht = 4, chrom_gap = 0.8, spark_gap = 0.2 * !is.null(RR),
     spark_box = 2.6 * !is.null(RR), unit_gap = 4),
   bottom_gap = 0.3,
@@ -22,6 +23,11 @@ of \link{RecRates}. If this is
 included, the recombination rates in cM/Mb are plotted atop the chromosomes
 as a little sparkline. If it is not included, then the there are
 no little sparklines above the chromosomes.}
+
+\item{fill_by_group_origin}{If FALSE (the default) the fill color of segments
+is mapped to the pop_origin, which is where the founder haplotypes came from according
+to the \code{hpop1} and \code{hpop2} columns in the GSP specification. If you set this
+to TRUE, then we map the "group" column of the reppop to fill.}
 
 \item{rel_heights}{a vector the the relative heights of the different
 elements of each chromosomal unit of the plot.  This is a named vector

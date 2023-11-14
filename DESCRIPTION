@@ -30,6 +30,7 @@ Imports:
     glue,
     magrittr,
     purrr,
+    readr,
     rlang,
     stats,
     stringr,
@@ -38,7 +39,6 @@ Imports:
 Suggests: 
     cowplot,
     knitr,
-    readr,
     rmarkdown,
     tidyverse
 VignetteBuilder: knitr
