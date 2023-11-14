@@ -69,6 +69,7 @@ the population of origin of each segment.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_simulated_chromomsome_segments</span><span class="op">(</span></span>
 <span>  <span class="va">Segs</span>,</span>
 <span>  RR <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fill_by_group_origin <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>chrom_ht <span class="op">=</span> <span class="fl">4</span>, chrom_gap <span class="op">=</span> <span class="fl">0.8</span>, spark_gap <span class="op">=</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">RR</span><span class="op">)</span>,</span>
 <span>    spark_box <span class="op">=</span> <span class="fl">2.6</span> <span class="op">*</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">RR</span><span class="op">)</span>, unit_gap <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,</span>
 <span>  bottom_gap <span class="op">=</span> <span class="fl">0.3</span>,</span>
@@ -89,6 +90,13 @@ of <a href="RecRates.html">RecRates</a>. If this is
 included, the recombination rates in cM/Mb are plotted atop the chromosomes
 as a little sparkline. If it is not included, then the there are
 no little sparklines above the chromosomes.</p></dd>
+
+
+<dt>fill_by_group_origin</dt>
+<dd><p>If FALSE (the default) the fill color of segments
+is mapped to the pop_origin, which is where the founder haplotypes came from according
+to the <code>hpop1</code> and <code>hpop2</code> columns in the GSP specification. If you set this
+to TRUE, then we map the "group" column of the reppop to fill.</p></dd>
 
 
 <dt>rel_heights</dt>

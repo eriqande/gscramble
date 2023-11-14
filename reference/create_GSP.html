@@ -72,7 +72,15 @@ functions in gscramble including "check_pedigree_for_inbreeding" and "prep_gsp_f
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_GSP</span><span class="op">(</span><span class="va">pop1</span>, <span class="va">pop2</span>, F1 <span class="op">=</span> <span class="cn">F</span>, F2 <span class="op">=</span> <span class="cn">F</span>, F1B <span class="op">=</span> <span class="cn">F</span>, F1B2 <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_GSP</span><span class="op">(</span></span>
+<span>  <span class="va">pop1</span>,</span>
+<span>  <span class="va">pop2</span>,</span>
+<span>  F1 <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  F2 <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  F1B <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  F1B2 <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  AllowSinglePop <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -99,6 +107,11 @@ functions in gscramble including "check_pedigree_for_inbreeding" and "prep_gsp_f
 
 <dt>F1B2</dt>
 <dd><p>logical indicating whether you would like to have sampled F1 backcross 2 hybrids in the output.</p></dd>
+
+
+<dt>AllowSinglePop</dt>
+<dd><p>Set to true if you want all the founders from just a single population.  This
+has some use cases...</p></dd>
 
 </dl></div>
     <div id="value">
