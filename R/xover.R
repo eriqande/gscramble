@@ -49,7 +49,15 @@ xover <- function(V1, V2, R) {
     return(list(V1 = V1, V2 = V2))
   }
 
+  # there are some weird edge cases, somehow, where an element of R
+  # is greater than V1 or V2.  We just whack those back as need be, in the loop below
+  mV1 = max(V1)
+  mV2 = max(V2)
+
   for(r in R) {
+    if (r >= mV1) {r <- mV1 - 1 + runif(1, min = 0, max = 0.001)}
+    if (r >= mV2) {r <- mV2 - 1 + runif(1, min = 0, max = 0.001)}
+
     i1 <- as.integer(cut(r, V1))
     i2 <- as.integer(cut(r, V2))
 
