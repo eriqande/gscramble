@@ -29,6 +29,14 @@ check_rec_rates_formatting <- function(rr) {
     slice(1) %>%
     filter(start_pos != 1)
 
+  # finally, check to make sure that the end_pos is at least one greater than the start
+  # pos in each bin
+  bin_probs <- tmp %>%
+    filter(end_pos - start_pos < 1)
+
+
+
+  # Bark some informative errors if any of the above tibbles is not empty
   if(nrow(cl_tib) > 0) {
     stringy <- paste("\t- Chrom:", cl_tib$chrom, "\n")
     err <- paste("* end_pos of right-most bin not 1 greater than chromosome length for chromosomes: \n",
@@ -39,6 +47,12 @@ check_rec_rates_formatting <- function(rr) {
   if(nrow(start_end) > 0) {
     stringy <- paste("\t- Chrom:", start_end$chrom, "start_pos:", start_end$start_pos, "\n")
     err <- paste("* end_pos of these bins is not at 1 less than the next bin start position: \n", paste(stringy, collapse = ""))
+    msg <- paste(msg, err, sep = "")
+    Flag <- TRUE
+  }
+  if(nrow(bin_probs) > 0) {
+    stringy <- paste("\t- Chrom:", bin_probs$chrom, "start_pos:", bin_probs$start_pos, "     end_pos:", bin_probs$end_pos, "\n")
+    err <- paste("* end_pos of these bins is not at least 1 greater than start_pos: \n", paste(stringy, collapse = ""))
     msg <- paste(msg, err, sep = "")
     Flag <- TRUE
   }
