@@ -29,6 +29,7 @@
 #' that point.  However, if you know the lengths of the chromosomes and want to
 #' add those in there, then pass them into the `chrom_lengths` option.
 #' @export
+#' @return A tibble that provides the recombination rates for the segments of the genome.
 #' @examples
 #' mapfile <- system.file(
 #'     "extdata/example-plink-with-morgans.map.gz",
