@@ -11,6 +11,12 @@
 #' alleles at a locus.  Thus it is N x 2L where N is the number of individuals
 #' and L is the number of markers.
 #' @inheritParams perm_gs_by_pops
+#' @return A list with three components:
+#'   - `ret_geno`: A character matrix where each row is an individual and each pair of 
+#'   columns are the alleles at a locus, thus it is N x 2L where N is the number of 
+#'   individuals and L is the number of markers.
+#'   - `ret_ids`: A tibble providing the individual meta data with columns `groups` and `indiv`.
+#'   - `hyb_Qs`: A tibble of the admixture Q values.
 #' @export
 #' @examples
 #' #### First, get input segments for the function ####
