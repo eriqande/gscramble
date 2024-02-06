@@ -25,7 +25,13 @@
 #' for pivoting, etc.  As such, it is not intended for data sets with
 #' tens of thousands of markers.  You oughtn't be using NewHybrids with
 #' so many markers, anyway!
+#' @return A list with three components:
+#'   - `outfile`: outfile name of saved data.
+#'   - `genos`: Genotypes
+#'   - `allele_names`: Allele names.
 #' @export
+#' @examples
+#' gscramble2newhybrids(M, M_meta)
 gscramble2newhybrids <- function(
     M,
     M_meta,
