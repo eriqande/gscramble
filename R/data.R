@@ -89,7 +89,7 @@ NULL
 
 
 
-#' Example Genomic Simulation Pedigree (GSP) with 13 members
+#' Example Genomic Simulation Pedigree, GSP, with 13 members
 #'
 #' A GSP is a pedigree with no inbreeding which specifies
 #' This is a relatively complex GSP.  The tibble `GSP` specifies its
