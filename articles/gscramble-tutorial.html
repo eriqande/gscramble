@@ -64,7 +64,14 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/eriqande/gscramble/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -81,7 +88,7 @@
 </h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/eriqande/gscramble/blob/HEAD/vignettes/gscramble-tutorial.Rmd" class="external-link"><code>vignettes/gscramble-tutorial.Rmd</code></a></small>
       <div class="hidden name"><code>gscramble-tutorial.Rmd</code></div>
 
     </div>
@@ -89,7 +96,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">gscramble</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/eriqande/gscramble" class="external-link">gscramble</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.4     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.5</span></span>
@@ -142,7 +149,7 @@ genotyped at 100 loci distributed across 3 chromosomes (chr 12, 17,
 invasive feral swine, are included as data objects with the package
 (<code>Geno</code>, <code>I_meta</code>, and <code>M_meta</code>). The
 full data set, from which the package data were downsampled, was used in
-Smyser et al. (2020), and is available at <a href="https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.jsxksn05z" class="external-link uri">https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.jsxksn05z</a>.</p>
+Smyser et al. (2020), and is available at <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.jsxksn05z" class="external-link uri">https://datadryad.org/stash/dataset/doi:10.5061/dryad.jsxksn05z</a>.</p>
 <div class="section level3">
 <h3 id="matrix-of-genotype-data--geno">Matrix of genotype data. <code>Geno</code><a class="anchor" aria-label="anchor" href="#matrix-of-genotype-data--geno"></a>
 </h3>
@@ -1099,8 +1106,8 @@ are gzipped with the <code>.gz</code> extension.</p>
 <span>  Geno <span class="op">=</span> <span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span>,</span>
 <span>  prefix <span class="op">=</span> <span class="va">tfile</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; pedfile written to /tmp/RtmpMvAVRe/file1b40dbef973.ped</span></span>
-<span><span class="co">#&gt; mapfile written to /tmp/RtmpMvAVRe/file1b40dbef973.map</span></span>
+<span><span class="co">#&gt; pedfile written to /tmp/Rtmp4nQBQc/file1b5a20d29a6.ped</span></span>
+<span><span class="co">#&gt; mapfile written to /tmp/Rtmp4nQBQc/file1b5a20d29a6.map</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
   </div>
