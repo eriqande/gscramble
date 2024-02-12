@@ -122,6 +122,16 @@ the gene copies are not permuted within individuals. You should only ever
 use <code>preserve_haplotypes = TRUE</code> if you have phased data.)</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>A list with three components:</p><ul><li><p><code>ret_geno</code>: A character matrix where each row is an individual and each pair of
+columns are the alleles at a locus, thus it is N x 2L where N is the number of
+individuals and L is the number of markers.</p></li>
+<li><p><code>ret_ids</code>: A tibble providing the individual meta data with columns <code>groups</code> and <code>indiv</code>.</p></li>
+<li><p><code>hyb_Qs</code>: A tibble of the admixture Q values.</p></li>
+</ul></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>

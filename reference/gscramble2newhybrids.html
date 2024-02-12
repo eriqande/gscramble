@@ -81,7 +81,7 @@ the <code>indiv</code> column for the sample names.</p>
 <span>  z <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  s <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  retain <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  outfile <span class="op">=</span> <span class="st">"gscram-newhybs.txt"</span></span>
+<span>  outfile <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -115,9 +115,19 @@ should be given the -s option. For example "SH|CCT"</p></dd>
 
 
 <dt>outfile</dt>
-<dd><p>path to the file to write the newhybrids data set to.</p></dd>
+<dd><p>path to the file to write the newhybrids data set to. For CRAN
+compliance, this is, by default, a temp file. But you can change it to be
+anything valid.</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>A list with three components:</p><ul><li><p><code>outfile</code>: outfile name of saved data.</p></li>
+<li><p><code>genos</code>: Genotypes</p></li>
+<li><p><code>allele_names</code>: Allele names.</p></li>
+</ul></div>
     <div id="details">
     <h2>Details</h2>
     <p>It allows you to set the -s and -z through some regular expression mapping.</p>
@@ -127,6 +137,90 @@ tens of thousands of markers.  You oughtn't be using NewHybrids with
 so many markers, anyway!</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># get output from segments2markers():</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/example.html" class="external-link">example</a></span><span class="op">(</span><span class="st">"segments2markers"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; #### First, get input segments for the function ####</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # We construct an example here where we will request segregation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # down a GSP with two F1s and F1B backcrosses between two hypothetical</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # populations, A and B.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; set.seed(5)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; gsp_f1f1b &lt;- create_GSP("A", "B", F1 = TRUE, F1B = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # We will imagine that in our marker data there are three groups</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # labelled "Pop1", "Pop2", and "Pop3", and we want to create the F1Bs with backcrossing</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # only to Pop3.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; reppop &lt;- tibble::tibble(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2+     index = as.integer(c(1, 1, 2, 2)),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2+     pop = c("A", "B", "A", "B"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2+     group = c("Pop3", "Pop1", "Pop3", "Pop2")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2+ )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # combine those into a request</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; request &lt;- tibble::tibble(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2+    gpp = list(gsp_f1f1b),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2+    reppop = list(reppop)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2+ )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # now segegate segments.  Explicitly pass the markers</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # in M_meta so that the order of the markers is set efficiently.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; segs &lt;- segregate(request, RecRates, M_meta)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; #### Now, use segs in an example with segments2markers() ####</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # this uses several package data objects that are there for examples</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; # and illustration.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sgmnt2&gt; s2m_result &lt;- segments2markers(segs, I_meta, M_meta, Geno)</span>
+<span class="r-in"><span><span class="co"># copy that result to a new variable</span></span></span>
+<span class="r-in"><span><span class="va">M</span> <span class="op">&lt;-</span> <span class="va">s2m_result</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># then run it</span></span></span>
+<span class="r-in"><span><span class="fu">gscramble2newhybrids</span><span class="op">(</span><span class="va">M</span>, <span class="va">M_meta</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $outfile</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmp8vqJpc/file17cd475c7102"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $genos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 78 × 102</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    useit opt_col   WU_10.2_12_4469057 ALGA0064411 WU_10.2_12_7394362 ASGA0090707</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     1 n h-1-1-… 0202               0000        0101               0201       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     2 n h-1-1-… 0102               0101        0101               0202       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     3 n h-1-1-… 0102               0000        0102               0201       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     4 n h-1-2-… 0102               0201        0102               0202       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     5 n h-1-2-… 0102               0201        0102               0202       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     6 n h-1-2-… 0202               0201        0101               0201       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     7 n permed… 0202               0101        0102               0101       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     8 n permed… 0202               0101        0202               0101       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     9 n permed… 0202               0101        0202               0000       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>    10 n permed… 0202               0101        0202               0101       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 68 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 96 more variables: WU_10.2_12_8971475 &lt;chr&gt;, WU_10.2_12_11034660 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   WU_10.2_12_11146365 &lt;chr&gt;, ASGA0053210 &lt;chr&gt;, ALGA0114537 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   WU_10.2_12_15628863 &lt;chr&gt;, ALGA0108041 &lt;chr&gt;, ALGA0065869 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   WU_10.2_12_31279548 &lt;chr&gt;, DRGA0011741 &lt;chr&gt;, WU_10.2_12_42676693 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   M1GA0016777 &lt;chr&gt;, WU_10.2_12_46448883 &lt;chr&gt;, ALGA0066740 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   MARC0036299 &lt;chr&gt;, ALGA0118253 &lt;chr&gt;, WU_10.2_12_57360470 &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $allele_names</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 298 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    locus       allele alle_int     n</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 17_13447160 A      01          42</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 17_13447160 G      02         108</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 17_13447160 <span style="color: #BB0000;">NA</span>     00           6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 17_17657093 C      01         102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 17_17657093 T      02          38</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 17_17657093 <span style="color: #BB0000;">NA</span>     00          16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ALGA0049523 A      01          86</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ALGA0049523 G      02          64</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ALGA0049523 <span style="color: #BB0000;">NA</span>     00           6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ALGA0064411 C      01         136</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 288 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
