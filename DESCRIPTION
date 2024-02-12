@@ -50,3 +50,5 @@ Suggests:
     rmarkdown,
     tidyverse
 VignetteBuilder: knitr
+URL: https://github.com/eriqande/gscramble
+BugReports: https://github.com/eriqande/gscramble/issues
