@@ -20,7 +20,9 @@
 #' @param s a single regular expressions that matches individuals that
 #' should be given the -s option. For example "SH|CCT"
 #' @param retain a vector of loci to retain.
-#' @param outfile path to the file to write the newhybrids data set to.
+#' @param outfile path to the file to write the newhybrids data set to. For CRAN
+#' compliance, this is, by default, a temp file. But you can change it to be
+#' anything valid.
 #' @details This function relies a lot on some tidyverse functions
 #' for pivoting, etc.  As such, it is not intended for data sets with
 #' tens of thousands of markers.  You oughtn't be using NewHybrids with
@@ -31,6 +33,12 @@
 #'   - `allele_names`: Allele names.
 #' @export
 #' @examples
+#' # get output from segments2markers():
+#' example("segments2markers")
+#' # copy that result to a new variable
+#' M <- s2m_result
+#'
+#' # then run it
 #' gscramble2newhybrids(M, M_meta)
 gscramble2newhybrids <- function(
     M,
@@ -38,7 +46,7 @@ gscramble2newhybrids <- function(
     z = NULL,
     s = NULL,
     retain = NULL,
-    outfile = "gscram-newhybs.txt"
+    outfile = tempfile()
   ) {
   headers <- paste(rep(M_meta$variant_id, each = 2), "____", c(1,2), sep = "")
 

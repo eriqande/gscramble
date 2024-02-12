@@ -10,7 +10,7 @@ gscramble2newhybrids(
   z = NULL,
   s = NULL,
   retain = NULL,
-  outfile = "gscram-newhybs.txt"
+  outfile = tempfile()
 )
 }
 \arguments{
@@ -31,7 +31,17 @@ should be given the -s option. For example "SH|CCT"}
 
 \item{retain}{a vector of loci to retain.}
 
-\item{outfile}{path to the file to write the newhybrids data set to.}
+\item{outfile}{path to the file to write the newhybrids data set to. For CRAN
+compliance, this is, by default, a temp file. But you can change it to be
+anything valid.}
+}
+\value{
+A list with three components:
+\itemize{
+\item \code{outfile}: outfile name of saved data.
+\item \code{genos}: Genotypes
+\item \code{allele_names}: Allele names.
+}
 }
 \description{
 This function turns character-based alleles into integers
@@ -46,4 +56,13 @@ This function relies a lot on some tidyverse functions
 for pivoting, etc.  As such, it is not intended for data sets with
 tens of thousands of markers.  You oughtn't be using NewHybrids with
 so many markers, anyway!
+}
+\examples{
+# get output from segments2markers():
+example("segments2markers")
+# copy that result to a new variable
+M <- s2m_result
+
+# then run it
+gscramble2newhybrids(M, M_meta)
 }

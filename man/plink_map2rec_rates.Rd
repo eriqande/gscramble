@@ -31,6 +31,9 @@ add those in a tibble with columns \code{chrom} and \code{bp} where \code{chrom}
 must be a numeric vector of the number of base pairs of length of each
 chromosome.}
 }
+\value{
+A tibble that provides the recombination rates for the segments of the genome.
+}
 \description{
 This is a convenience function to convert PLINK map format to
 the format used in the gscramble \code{RecRates} object.  By default,

@@ -43,6 +43,16 @@ individual.  (If \code{preserve_haplotypes = TRUE} then
 the gene copies are not permuted within individuals. You should only ever
 use \code{preserve_haplotypes = TRUE} if you have phased data.)}
 }
+\value{
+A list with three components:
+\itemize{
+\item \code{ret_geno}: A character matrix where each row is an individual and each pair of
+columns are the alleles at a locus, thus it is N x 2L where N is the number of
+individuals and L is the number of markers.
+\item \code{ret_ids}: A tibble providing the individual meta data with columns \code{groups} and \code{indiv}.
+\item \code{hyb_Qs}: A tibble of the admixture Q values.
+}
+}
 \description{
 Map alleles from scrambled founders to the sampled segments from a GSP.
 }
