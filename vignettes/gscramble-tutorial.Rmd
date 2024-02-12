@@ -49,7 +49,7 @@ to provide:
 Examples of these objects (which have been heavily downsampled to make them small enough to host on CRAN) illustrating 78 individuals genotyped at 100 loci distributed across 3 chromosomes (chr 12, 17, & 18) and sampled from 4 groups (Pop1, 2, 3, 4) from a data set of invasive feral swine, 
 are included as data objects with the package (`Geno`, `I_meta`, and `M_meta`). The full data set, from
 which the package data were downsampled, was used
-in Smyser et al. (2020), and is available at https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.jsxksn05z.
+in Smyser et al. (2020), and is available at https://datadryad.org/stash/dataset/doi:10.5061/dryad.jsxksn05z.
 
 
 

@@ -8,7 +8,7 @@ Authors@R:
       comment = c(ORCID = "0000-0003-1326-0840")
     ),
     person(given = c("Rachael", "M."), "Giglio", , "rachael.giglio@usda.gov", role = c("aut"),
-      comment = c(ORCID = "000-0003-4183-3546")
+      comment = c(ORCID = "0000-0003-4183-3546")
     ),
     person(given = c("Matt", "G."), "DeSaix", , "mgdesaix@gmail.com", role = c("aut"),
       comment = c(ORCID = "0000-0002-5721-0311")
@@ -17,8 +17,7 @@ Authors@R:
       comment = c(ORCID = "0000-0003-4542-3077")
     )
   )
-Maintainer: <eric.anderson@noaa.gov>
-Description: gscramble is a simulation approach for creating biologically 
+Description: A genomic simulation approach for creating biologically 
     informed individual genotypes from empirical data that: 1) samples alleles 
     from populations without replacement, 2) segregates alleles based on species-specific 
     recombination rates. gscramble is a flexible simulation approach that allows users 
