@@ -27,16 +27,26 @@
 #' #create a GSP that generates hybrids and samples F1s, F2s, F1Bs, F1B2s from pops A and B
 #' gsp <- create_GSP("Pop_X", "Pop_Z", F1 = TRUE, F2 = TRUE, F1B = TRUE, F1B2 = TRUE)
 #'
-create_GSP<-function(pop1,pop2,F1=F,F2=F,F1B=F,F1B2=F, AllowSinglePop = FALSE){
+create_GSP<-function(
+    pop1,
+    pop2,
+    F1 = FALSE,
+    F2 = FALSE,
+    F1B = FALSE,
+    F1B2 = FALSE,
+    AllowSinglePop = FALSE
+){
 
-  Mateparams<-c(F1,F2,F1B,F1B2)
-  GSP_index<-sum(Mateparams*c(1,2,4,8))
+  Mateparams <- c(F1,F2,F1B,F1B2)
+  GSP_index <- sum(Mateparams*c(1,2,4,8))
 
-  if(GSP_index == 0)stop("Error: At least one parameter (F1, F2, F1B, or F1B2) must be TRUE")
-  if(pop1 == pop2 && !AllowSinglePop)stop("Error: You must select two different populations for the pop1 and pop2 parameters")
+  if(GSP_index == 0) stop("Error: At least one parameter (F1, F2, F1B, or F1B2) must be TRUE")
 
-  GSP<-GSP_opts[[GSP_index]]
+  if(pop1 == pop2 && !AllowSinglePop) stop("Error: You must select two different populations for the pop1 and pop2 parameters")
+
+  GSP <- GSP_opts[[GSP_index]]
   GSP[,c("hpop1", "hpop2")] <- lapply(GSP[,c("hpop1", "hpop2")], gsub, pattern = "p1", replacement = pop1)
   GSP[,c("hpop1", "hpop2")] <- lapply(GSP[,c("hpop1", "hpop2")], gsub, pattern = "p2", replacement = pop2)
+
   return(GSP)
 }
