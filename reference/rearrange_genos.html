@@ -37,13 +37,13 @@ for example).'><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/li
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/gscramble-tutorial.html">A first tutorial for `gscramble`</a>
+      <a href="../articles/gscramble-tutorial.html">A first tutorial for 'gscramble'</a>
     </li>
     <li>
       <a href="../articles/about-createGSP.html">Pedigrees Available from create_GSP()</a>
     </li>
     <li>
-      <a href="../articles/permutation-options.html">Permutation Options in gscramble</a>
+      <a href="../articles/permutation-options.html">Permutation Options in 'gscramble'</a>
     </li>
   </ul></li>
 <li>
@@ -96,6 +96,16 @@ for example).</p>
 <dd><p>the meta data for the L markers.</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>Returns a list. Each component of the return list is itself
+an unnamed list with one component (makes it easier to use <code>bind_rows</code> to
+create a tibble of list columns from these).  The components, once unlisted are:</p><ul><li><p><code>G</code>: a matrix---the rearranged genotype data matrix</p></li>
+<li><p><code>I</code>: the I_meta tibble</p></li>
+<li><p><code>M</code>: the M_meta tibble</p></li>
+</ul></div>
     <div id="details">
     <h2>Details</h2>
     <p>It returns a list.  One component is the matrix, another is the

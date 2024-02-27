@@ -41,13 +41,13 @@ are listed before an error is thrown with stop()."><!-- mathjax --><script src="
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/gscramble-tutorial.html">A first tutorial for `gscramble`</a>
+      <a href="../articles/gscramble-tutorial.html">A first tutorial for 'gscramble'</a>
     </li>
     <li>
       <a href="../articles/about-createGSP.html">Pedigrees Available from create_GSP()</a>
     </li>
     <li>
-      <a href="../articles/permutation-options.html">Permutation Options in gscramble</a>
+      <a href="../articles/permutation-options.html">Permutation Options in 'gscramble'</a>
     </li>
   </ul></li>
 <li>
@@ -114,16 +114,37 @@ object of <code><a href="prep_gsp_for_hap_dropping.html">prep_gsp_for_hap_droppi
 <span class="r-in"><span><span class="co"># check it. (This passes)</span></span></span>
 <span class="r-in"><span><span class="fu">check_gsp_for_validity_and_saturation</span><span class="op">(</span><span class="va">GP</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## The following will show a failure, so we wrap it in tryCatch</span></span></span>
+<span class="r-in"><span><span class="co">## so CRAN check does not flag it as a problem.</span></span></span>
 <span class="r-in"><span><span class="co"># Read in a gsp with errors and then make sure all the</span></span></span>
 <span class="r-in"><span><span class="co"># error in it are caught</span></span></span>
-<span class="r-in"><span><span class="va">bad</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"inst/extdata/13-member-ped-with-errors.csv"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">bad</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/13-member-ped-with-errors.csv"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">13</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">11</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Delimiter:</span> ","</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">chr</span> (5): hap1, hap2, hpop1, hpop2, sample</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">dbl</span> (6): ind, par1, par2, ipar1, ipar2, osample</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># check_gsp_for_validity_and_saturation() is called internally from</span></span></span>
 <span class="r-in"><span><span class="co"># within prep_gsp_for_hap_dropping(), after creating a list-from GSP.</span></span></span>
 <span class="r-in"><span><span class="co"># This will show the error produced by check_gsp_for_validity_and_saturation().</span></span></span>
-<span class="r-in"><span><span class="va">badL</span> <span class="op">&lt;-</span> <span class="fu"><a href="prep_gsp_for_hap_dropping.html">prep_gsp_for_hap_dropping</a></span><span class="op">(</span><span class="va">bad</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">badL</span> <span class="op">&lt;-</span> <span class="kw"><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="prep_gsp_for_hap_dropping.html">prep_gsp_for_hap_dropping</a></span><span class="op">(</span><span class="va">bad</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  error <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">0</span>,</span></span>
+<span class="r-in"><span>  warning <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error! Founder with ID 1 missing founder haplotype population information</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error! Founder with ID 1 missing valid founder haplotype index</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error! Founder with ID 2 cannot also be a sample</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Warning! Founder with ID 6 is segregating 1 gametes, which is &lt; 2.  This leaves genetic material unused</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error! Non-founder with ID 7 has different numbers of gametes coming in from its two parents: from parent ID 2, number of gametes is 1. From parent ID 3, number of gametes is 2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error! Non-founder with ID 7 has 3 incoming gametes, but is requested to use 4 gametes. 2 for its descendants and 2 for its 1 samples.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Error! Non-founder with ID 8 has 4 incoming gametes, but is requested to use 6 gametes. 2 for its descendants and 4 for its 2 samples.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Warning! Non-founder with ID 12 has 4 incoming gametes, and is requested to use only 2 gametes. 0 for its descendants and 2 for its 1 samples.</span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

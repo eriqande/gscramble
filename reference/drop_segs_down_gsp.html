@@ -34,13 +34,13 @@ in a nice tidy tibble."><!-- mathjax --><script src="https://cdnjs.cloudflare.co
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/gscramble-tutorial.html">A first tutorial for `gscramble`</a>
+      <a href="../articles/gscramble-tutorial.html">A first tutorial for 'gscramble'</a>
     </li>
     <li>
       <a href="../articles/about-createGSP.html">Pedigrees Available from create_GSP()</a>
     </li>
     <li>
-      <a href="../articles/permutation-options.html">Permutation Options in gscramble</a>
+      <a href="../articles/permutation-options.html">Permutation Options in 'gscramble'</a>
     </li>
   </ul></li>
 <li>
@@ -93,6 +93,27 @@ the package data <code><a href="GSP.html">GSP</a></code>.</p></dd>
 are denoted by the index column in the output tibble.</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>The output from this function is a tibble.  Each row represents one segment of genetic
+material amongst the sampled individuals from the genomic permutation pedigrees. The columns give
+information about the provenance and destination of that segment as follows.
+Each segment exists in one of the samples (<code>samp_index</code>) from a sampled individual
+with a <code>ped_sample_id</code></p>
+
+
+<p>in a given <code>samp_index</code> within the individual.  Further, it is on one of two gametes
+(<code>gamete_index</code>) that segregated into the individual, and it came from a certain founding
+population (<code>pop_origin</code>).
+And, of course, the segment occupies the space from <code>start</code> to <code>end</code> on a chromosome <code>chrom</code>.
+Finally, the index of the founder haplotype on the given gpp that this segement descended from is
+given in <code>rs_founder_haplotype</code> which is short for "rep-specific founder haplotype". This final
+piece of information is crucial for segregating variation from the individuals in the <code>Geno</code> file
+onto these segments. The <code>gamete_segments</code> column is a list column with duplicated entries for
+each chromosome in an individual.</p>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
