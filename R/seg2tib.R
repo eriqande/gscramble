@@ -2,6 +2,9 @@
 #'
 #' A small helper function.
 #' @param s a gamete in segment format
+#' @return Returns a tibble with columns `tmp_seg_names`, `start`, and `end`,
+#' that show the origin (in `tmp_seg_names`) of segments that start at `start`
+#' and end at `end`.
 #' @export
 #' @examples
 #' # first make a segment that has pieces from a few different founders

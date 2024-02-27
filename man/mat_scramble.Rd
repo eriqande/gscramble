@@ -28,6 +28,11 @@ chromosomes.}
 \item{preserve_individuals}{logical indicating whether the genes within
 each individual should stay togeter.}
 }
+\value{
+This function returns a matrix of the same dimensions and storage.mode
+as the input, \code{M}; however the elements have been permuted according to the
+options specified by the users.
+}
 \description{
 This function assumes that M is a matrix with L rows (number of markers) and
 2 * N (N = number of individuals) columns.

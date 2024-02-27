@@ -6,6 +6,8 @@
 #' samples are named sX, where X is an integer,
 #' @param G a GSP tibble
 #' @param add amount to add to each label
+#' @return Returns a GSP just like the input, but with the identity numbers
+#' of the individuals in it incremented by `add`.
 #' @export
 #' @examples
 #' # get an example GSP

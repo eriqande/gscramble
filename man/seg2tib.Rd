@@ -9,6 +9,11 @@ seg2tib(s)
 \arguments{
 \item{s}{a gamete in segment format}
 }
+\value{
+Returns a tibble with columns \code{tmp_seg_names}, \code{start}, and \code{end},
+that show the origin (in \code{tmp_seg_names}) of segments that start at \code{start}
+and end at \code{end}.
+}
 \description{
 A small helper function.
 }

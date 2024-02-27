@@ -24,8 +24,20 @@ individual.  (If \code{preserve_haplotypes = TRUE} then
 the gene copies are not permuted within individuals. You should only ever
 use \code{preserve_haplotypes = TRUE} if you have phased data.)}
 }
+\value{
+Returns a list of the same format as the output of \code{rearrange_genos}.
+Plus one additional component. Each component of the return list is itself
+an unnamed list with one component (makes it easier to use \code{bind_rows} to
+create a tibble of list columns from these).  The components, once unlisted are:
+\itemize{
+\item \code{G}: a matrix---the original genotype data matrix
+\item \code{I}: the I_meta tibble
+\item \code{M}: the M_meta tibble
+\item \code{G_permed}: the genotype matrix after permutation.
+}
+}
 \description{
-This is done prior to assign random genomic fragments of individuals in the
+This is done prior to assigning random genomic fragments of individuals in the
 sample to the founders of the GSP, to be dropped to the samples.
 }
 \examples{

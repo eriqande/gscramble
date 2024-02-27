@@ -15,6 +15,10 @@ on every chromosome (see Details).  If FALSE then the total number of recombinat
 simulated as a Poisson r.v. with mean equal to the sum of the
 recombination fractions.}
 }
+\value{
+Returns a numeric vector of recombination breakpoints along the chromome.
+The values are sorted in ascending order.
+}
 \description{
 This function uses the observed recombination fractions such as those
 in the data object \link{RecRates}.  These are observed recombination fractions

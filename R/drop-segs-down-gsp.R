@@ -9,6 +9,20 @@
 #' \code{\link{RecRates}}
 #' @param Reps the number of times to do the simulation.  Different replicates
 #' are denoted by the index column in the output tibble.
+#' @return The output from this function is a tibble.  Each row represents one segment of genetic
+#' material amongst the sampled individuals from the genomic permutation pedigrees. The columns give
+#' information about the provenance and destination of that segment as follows.
+#' Each segment exists in one of the samples (`samp_index`) from a sampled individual
+#' with a `ped_sample_id`
+#' in a given `samp_index` within the individual.  Further, it is on one of two gametes
+#' (`gamete_index`) that segregated into the individual, and it came from a certain founding
+#' population (`pop_origin`).
+#' And, of course, the segment occupies the space from `start` to `end` on a chromosome `chrom`.
+#' Finally, the index of the founder haplotype on the given gpp that this segement descended from is
+#' given in `rs_founder_haplotype` which is short for "rep-specific founder haplotype". This final
+#' piece of information is crucial for segregating variation from the individuals in the `Geno` file
+#' onto these segments. The `gamete_segments` column is a list column with duplicated entries for
+#' each chromosome in an individual.
 #' @export
 #' @examples
 #' simSegs <- drop_segs_down_gsp(GSP, RecRates, 4)

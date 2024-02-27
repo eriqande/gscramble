@@ -36,6 +36,8 @@
 #' on every chromosome (see Details).  If FALSE then the total number of recombinations is
 #' simulated as a Poisson r.v. with mean equal to the sum of the
 #' recombination fractions.
+#' @return Returns a numeric vector of recombination breakpoints along the chromome.
+#' The values are sorted in ascending order.
 #' @export
 #' @examples
 #' # for an example, create a tibble of bins, roughly 1 Mb each,

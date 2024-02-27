@@ -1,6 +1,6 @@
 #' Take the output of rearrange_genos and permute everyone by population
 #'
-#' This is done prior to assign random genomic fragments of individuals in the
+#' This is done prior to assigning random genomic fragments of individuals in the
 #' sample to the founders of the GSP, to be dropped to the samples.
 #' @param GS the tibble that is the output from rearrange_genos
 #' @param preserve_haplotypes If TRUE then the Geno data is assumed phased
@@ -16,6 +16,14 @@
 #' individual.  (If `preserve_haplotypes = TRUE` then
 #' the gene copies are not permuted within individuals. You should only ever
 #' use `preserve_haplotypes = TRUE` if you have phased data.)
+#' @return Returns a list of the same format as the output of `rearrange_genos`.
+#' Plus one additional component. Each component of the return list is itself
+#' an unnamed list with one component (makes it easier to use `bind_rows` to
+#' create a tibble of list columns from these).  The components, once unlisted are:
+#' - `G`: a matrix---the original genotype data matrix
+#' - `I`: the I_meta tibble
+#' - `M`: the M_meta tibble
+#' - `G_permed`: the genotype matrix after permutation.
 #' @export
 #' @examples
 #' # first get the output of rearrange_genos

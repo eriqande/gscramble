@@ -11,6 +11,10 @@ renumber_GSP(G, add)
 
 \item{add}{amount to add to each label}
 }
+\value{
+Returns a GSP just like the input, but with the identity numbers
+of the individuals in it incremented by \code{add}.
+}
 \description{
 This function assumes that all individuals are named as
 numerics and that their haplotypes in hap1 and hap2

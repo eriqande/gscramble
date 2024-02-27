@@ -13,6 +13,16 @@ rearrange_genos(G, Im, Mm)
 
 \item{Mm}{the meta data for the L markers.}
 }
+\value{
+Returns a list. Each component of the return list is itself
+an unnamed list with one component (makes it easier to use \code{bind_rows} to
+create a tibble of list columns from these).  The components, once unlisted are:
+\itemize{
+\item \code{G}: a matrix---the rearranged genotype data matrix
+\item \code{I}: the I_meta tibble
+\item \code{M}: the M_meta tibble
+}
+}
 \description{
 This function first reorders individuals in the columns of
 the matrix so that every population is together.  Then it

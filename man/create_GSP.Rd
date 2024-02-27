@@ -7,10 +7,10 @@
 create_GSP(
   pop1,
   pop2,
-  F1 = F,
-  F2 = F,
-  F1B = F,
-  F1B2 = F,
+  F1 = FALSE,
+  F2 = FALSE,
+  F1B = FALSE,
+  F1B2 = FALSE,
   AllowSinglePop = FALSE
 )
 }

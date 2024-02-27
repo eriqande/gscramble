@@ -31,6 +31,9 @@
 #' They should be in order and complete.
 #' In practice, these should correspond to the indexes of markers on different
 #' chromosomes.
+#' @return This function returns a matrix of the same dimensions and storage.mode
+#' as the input, `M`; however the elements have been permuted according to the
+#' options specified by the users.
 #' @export
 #' @examples
 #' # make a matrix with alleles named as I.M.g, where I is individual

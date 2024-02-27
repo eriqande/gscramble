@@ -13,6 +13,12 @@
 #' @param G the genotype matrix (N rows and 2L columns)
 #' @param Im the meta data for the N samples.
 #' @param Mm the meta data for the L markers.
+#' @return Returns a list. Each component of the return list is itself
+#' an unnamed list with one component (makes it easier to use `bind_rows` to
+#' create a tibble of list columns from these).  The components, once unlisted are:
+#' - `G`: a matrix---the rearranged genotype data matrix
+#' - `I`: the I_meta tibble
+#' - `M`: the M_meta tibble
 #' @export
 #' @examples
 #' RG <- rearrange_genos(Geno, I_meta, M_meta)
