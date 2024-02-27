@@ -2,7 +2,7 @@
 % Please edit documentation in R/gscramble2plink.R
 \name{gscramble2plink}
 \alias{gscramble2plink}
-\title{Write gscramble I_meta, M_meta, and Geno to a plink file}
+\title{Write 'gscramble' I_meta, M_meta, and Geno to a plink file}
 \usage{
 gscramble2plink(I_meta, M_meta, Geno, prefix = tempfile())
 }
@@ -22,7 +22,7 @@ num-markers * 2 columns, with missing denoted denoted by NA.}
 Returns TRUE if successful.
 }
 \description{
-Writes genetic and individual information in gscramble's
+Writes genetic and individual information in 'gscramble's
 I_meta, M_meta, and Geno like objects into a uncompressed plink
 \code{.ped} and \code{.map} files.
 }

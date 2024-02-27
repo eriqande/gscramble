@@ -1,12 +1,12 @@
 #' Create a GSP from user inputs about what type of hybrids from which populations to create hybrids
 #'
-#' This function allows the user to choose two populations and create a GSP input for gscramble.
+#' This function allows the user to choose two populations and create a GSP input for 'gscramble'.
 #' The input requires two different population IDs of class character as well as at least one TRUE statement for one of
 #' the hybrid parameters (F1, F2, F1B, F1B2). The GSP will indicate hybrid individuals that will be sampled based on
 #' which F1, F2, F1B, and F1B2 parameters are TRUE. F1= TRUE means F1 hybrids will be sampled. F2=TRUE means F2 hybrids
 #' will be sampled. F1B2=TRUE means F1 backcross hybrids will be sampled. F1B2=TRUE means F1 backcross 2 hybrids will be sampled.
 #' Default setting for these parameters is FALSE. The function then outputs a GSP in tibble format that can be used for other
-#' functions in gscramble including "check_pedigree_for_inbreeding" and "prep_gsp_for_hap_dropping".
+#' functions in 'gscramble' including `check_pedigree_for_inbreeding()` and `prep_gsp_for_hap_dropping()`.
 #'
 #'
 #' @param pop1 character name for population 1

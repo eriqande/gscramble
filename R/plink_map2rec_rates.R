@@ -1,8 +1,8 @@
 
-#' Convert a PLINK map file to gscramble RecRates bins in a tibble
+#' Convert a PLINK map file to 'gscramble' RecRates bins in a tibble
 #'
 #' This is a convenience function to convert PLINK map format to
-#' the format used in the gscramble `RecRates` object.  By default,
+#' the format used in the 'gscramble' `RecRates` object.  By default,
 #' this function will use the positions of the markers and assume
 #' recombination rates of 1 cM per megabase.  If the marker positions
 #' are also available in Morgans in the PLINK map file, the these can be

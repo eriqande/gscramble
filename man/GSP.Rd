@@ -3,7 +3,7 @@
 \docType{data}
 \name{GSP}
 \alias{GSP}
-\title{Example Genomic Simulation Pedigree (GSP) with 13 members}
+\title{Example Genomic Simulation Pedigree, GSP, with 13 members}
 \format{
 A tibble
 }

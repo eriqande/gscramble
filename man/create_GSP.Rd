@@ -35,13 +35,13 @@ This function returns a GSP in tibble format with the user argument for pop1 and
 in the hpop1 and hpop2 columns.
 }
 \description{
-This function allows the user to choose two populations and create a GSP input for gscramble.
+This function allows the user to choose two populations and create a GSP input for 'gscramble'.
 The input requires two different population IDs of class character as well as at least one TRUE statement for one of
 the hybrid parameters (F1, F2, F1B, F1B2). The GSP will indicate hybrid individuals that will be sampled based on
 which F1, F2, F1B, and F1B2 parameters are TRUE. F1= TRUE means F1 hybrids will be sampled. F2=TRUE means F2 hybrids
 will be sampled. F1B2=TRUE means F1 backcross hybrids will be sampled. F1B2=TRUE means F1 backcross 2 hybrids will be sampled.
 Default setting for these parameters is FALSE. The function then outputs a GSP in tibble format that can be used for other
-functions in gscramble including "check_pedigree_for_inbreeding" and "prep_gsp_for_hap_dropping".
+functions in 'gscramble' including \code{check_pedigree_for_inbreeding()} and \code{prep_gsp_for_hap_dropping()}.
 }
 \examples{
 # create a GSP that generates hybrids and samples F1s and F1B's from pops A and B

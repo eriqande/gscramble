@@ -1,5 +1,5 @@
 ---
-title: "A first tutorial for `gscramble`"
+title: "A first tutorial for 'gscramble'"
 resource_files:
   - ../man/figures/F1-500.png
   - ../man/figures/13.svg
@@ -9,7 +9,7 @@ output:
   rmarkdown::html_vignette:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{A first tutorial for `gscramble`}
+  %\VignetteIndexEntry{A first tutorial for 'gscramble'}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -28,10 +28,10 @@ library(tidyverse)
 
 ## Input Data
 
-`gscramble` operates only for diploid species.  The main functions in `gscramble` require that genetic data
+'gscramble' operates only for diploid species.  The main functions in `gscramble` require that genetic data
 be provided in R objects (matrices/tibbles/etc.) with particular formatting.  We describe the formats of
 those objects here.  Later, in the section, [To and From plink Format], we describe functions for reading data from PLINK (.ped / .map) format (and perhaps others,
-in the future) into these necessary objects for `gscramble`.
+in the future) into these necessary objects for 'gscramble'.
 
 The main required objects (loosely aligning with .bed/.fam/.bim file structure of binary PLINK files) are:
 
@@ -147,7 +147,7 @@ head(M_meta)
 
 This is a tibble that gives information about the rate of recombinations
 in the genome.  This is necessary if simulating linked markers.  It is not required
-in `gscramble` to know a crossover rate nor a recombination rate between every adjacent pair
+in 'gscramble' to know a crossover rate nor a recombination rate between every adjacent pair
 of markers (though if you have that information, you can provide it in `RecRates`, see below).
 Rather, the rate of recombination can be specified in terms of the 
 per-meiosis probability of recombination in a number of (preferably relatively short---for
@@ -211,7 +211,7 @@ Individuals can be sampled from individuals in the pedigree, and it is up to the
 to indicate how many gametes must be segregated to each individual (from each of its
 two parents) in order to consume all the genetic material present among the founders.
 
-This probably sounds a little abstract, and, indeed, it is.  To demonstrate, `gscramble` includes
+This probably sounds a little abstract, and, indeed, it is.  To demonstrate, 'gscramble' includes
 15 basic GSPs (illustrated within the object `GSP_opts`) that can be retrieved by 
 specifying the types of individuals of interest with the function `create_GSP()`.
 As we will illustrate below, you are not restricted to these GSP configurations.
@@ -696,13 +696,13 @@ Markers <- segments2markers(
 
 ## To and From plink Format
 
-Now that we have illustrated the application of gscramble with this simple dataset 
+Now that we have illustrated the application of 'gscramble' with this simple dataset 
 and the included R objects `Geno`, `I_meta`, and `M_meta`, you are probably eager to try
-gscramble with data of your own.  Use the function `plink2gscramble()` to directly input 
+'gscramble' with data of your own.  Use the function `plink2gscramble()` to directly input 
 genotypes in the PLINK (.ped / .map) format.  You must pass the function `plink2gscramble()`
 both the .ped and corresponding .map files as illustrated below.  If your data is in a binary
 PLINK format (.bed / .bim / .fam), first use PLINK (option `--recode`) to export
-.ped and .map files that are accessible for gscramble's `plink2gscramble()`.
+.ped and .map files that are accessible for 'gscramble's `plink2gscramble()`.
 
 ```{r}
 ####### These lines are not portable, since gscrambleTutorial.ped and

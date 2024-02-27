@@ -1,4 +1,4 @@
-#' read plink-formatted .map and .ped files into gscramble format
+#' read plink-formatted .map and .ped files into 'gscramble' format
 #'
 #' This will read .ped and .map files (which can be gzipped, but
 #' cannot be the binary .bed or .bim plink format).  The population

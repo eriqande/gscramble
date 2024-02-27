@@ -1,6 +1,6 @@
-#' Write gscramble I_meta, M_meta, and Geno to a plink file
+#' Write 'gscramble' I_meta, M_meta, and Geno to a plink file
 #'
-#' Writes genetic and individual information in gscramble's
+#' Writes genetic and individual information in 'gscramble's
 #' I_meta, M_meta, and Geno like objects into a uncompressed plink
 #' `.ped` and `.map` files.
 #' @param I_meta a tibble of individual meta data

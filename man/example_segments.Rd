@@ -11,7 +11,7 @@ A tibble like that produced by the \code{segregate()} function.
 Made from package functions
 }
 \description{
-This is the Segments object from the gscramble tutorial.
+This is the Segments object from the 'gscramble' tutorial.
 It is included as a data object to use in the example for
 the function \code{plot_simulated_chromosome_segments()}.
 }

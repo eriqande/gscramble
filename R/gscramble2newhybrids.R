@@ -1,6 +1,6 @@
 
 
-#' Convert gscramble output to newhybrids format
+#' Convert 'gscramble' output to newhybrids format
 #'
 #' This function turns character-based alleles into integers
 #' and writes the necessary headers, etc.  It preferentially uses
@@ -8,7 +8,7 @@
 #' the `indiv` column for the sample names.
 #'
 #' It allows you to set the -s and -z through some regular expression mapping.
-#' @param M the output from `segments2markers()` from gscramble. This could
+#' @param M the output from `segments2markers()` from 'gscramble'. This could
 #' have an added `id` column on it, which will then be used for the
 #' sample names.
 #' @param M_meta the Marker meta data file.

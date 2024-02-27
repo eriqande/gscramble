@@ -2,7 +2,7 @@
 % Please edit documentation in R/gscramble2newhybrids.R
 \name{gscramble2newhybrids}
 \alias{gscramble2newhybrids}
-\title{Convert gscramble output to newhybrids format}
+\title{Convert 'gscramble' output to newhybrids format}
 \usage{
 gscramble2newhybrids(
   M,
@@ -14,7 +14,7 @@ gscramble2newhybrids(
 )
 }
 \arguments{
-\item{M}{the output from \code{segments2markers()} from gscramble. This could
+\item{M}{the output from \code{segments2markers()} from 'gscramble'. This could
 have an added \code{id} column on it, which will then be used for the
 sample names.}
 

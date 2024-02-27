@@ -2,7 +2,7 @@
 % Please edit documentation in R/plink_map2rec_rates.R
 \name{plink_map2rec_rates}
 \alias{plink_map2rec_rates}
-\title{Convert a PLINK map file to gscramble RecRates bins in a tibble}
+\title{Convert a PLINK map file to 'gscramble' RecRates bins in a tibble}
 \usage{
 plink_map2rec_rates(
   map,
@@ -36,7 +36,7 @@ A tibble that provides the recombination rates for the segments of the genome.
 }
 \description{
 This is a convenience function to convert PLINK map format to
-the format used in the gscramble \code{RecRates} object.  By default,
+the format used in the 'gscramble' \code{RecRates} object.  By default,
 this function will use the positions of the markers and assume
 recombination rates of 1 cM per megabase.  If the marker positions
 are also available in Morgans in the PLINK map file, the these can be

@@ -1,8 +1,8 @@
 ---
-title: "Permutation Options in gscramble"
+title: "Permutation Options in 'gscramble'"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Permutation Options in gscramble}
+  %\VignetteIndexEntry{Permutation Options in 'gscramble'}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

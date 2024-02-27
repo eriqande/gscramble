@@ -2,7 +2,7 @@
 % Please edit documentation in R/plink2gscramble.R
 \name{plink2gscramble}
 \alias{plink2gscramble}
-\title{read plink-formatted .map and .ped files into gscramble format}
+\title{read plink-formatted .map and .ped files into 'gscramble' format}
 \usage{
 plink2gscramble(ped = NULL, map = NULL, prefix = NULL, gz_ext = FALSE)
 }

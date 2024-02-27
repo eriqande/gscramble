@@ -1,6 +1,6 @@
 #' check that the chromosome lengths are acceptable given recombination rates
 #'
-#' For gscramble to work properly, all variant positions on a chromosome (found in the meta data file)
+#' For 'gscramble' to work properly, all variant positions on a chromosome (found in the meta data file)
 #' must be equal to or less than the total chromosome length found in the recombination map. In other words,
 #' the variant positions must be within the the total length of each chromosome. The check_chrom_lengths()
 #' function checks that variant positions on each chromosome do not exceed the total chromosome length from the

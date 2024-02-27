@@ -12,7 +12,7 @@ A tibble with three columns: \code{index}, which must be of type integer,
 The developers created this.
 }
 \description{
-A \code{reppop} table in gscramble is used to define how the founder populations
+A \code{reppop} table in 'gscramble' is used to define how the founder populations
 in a GSP (typically named something like "A", "B", etc.) are mapped to the
 groups/populations of individuals, as specified in the individual meta data
 (an example of which is found in \code{I_meta}).

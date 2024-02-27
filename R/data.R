@@ -170,7 +170,7 @@ NULL
 
 #' A simple example of a reppop table
 #'
-#' A `reppop` table in gscramble is used to define how the founder populations
+#' A `reppop` table in 'gscramble' is used to define how the founder populations
 #' in a GSP (typically named something like "A", "B", etc.) are mapped to the
 #' groups/populations of individuals, as specified in the individual meta data
 #' (an example of which is found in `I_meta`).
@@ -190,7 +190,7 @@ NULL
 
 #' Another simple example of a reppop table
 #'
-#' A `reppop` table in gscramble is used to define how the founder populations
+#' A `reppop` table in 'gscramble' is used to define how the founder populations
 #' in a GSP (typically named something like "A", "B", etc.) are mapped to the
 #' groups/populations of individuals, as specified in the individual meta data
 #' (an example of which is found in `I_meta`).
@@ -213,7 +213,7 @@ NULL
 
 #' Example of a segments tibble
 #'
-#' This is the Segments object from the gscramble tutorial.
+#' This is the Segments object from the 'gscramble' tutorial.
 #' It is included as a data object to use in the example for
 #' the function `plot_simulated_chromosome_segments()`.
 #' @format A tibble like that produced by the `segregate()` function.
