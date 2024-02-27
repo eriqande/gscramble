@@ -24,16 +24,21 @@
 #' # check it. (This passes)
 #' check_gsp_for_validity_and_saturation(GP)
 #'
-#' \dontrun{
+#' ## The following will show a failure, so we wrap it in tryCatch
+#' ## so CRAN check does not flag it as a problem.
 #' # Read in a gsp with errors and then make sure all the
 #' # error in it are caught
-#' bad <- readr::read_csv("inst/extdata/13-member-ped-with-errors.csv")
+#' bad <- readr::read_csv(system.file("extdata/13-member-ped-with-errors.csv", package = "gscramble"))
 #'
 #' # check_gsp_for_validity_and_saturation() is called internally from
 #' # within prep_gsp_for_hap_dropping(), after creating a list-from GSP.
 #' # This will show the error produced by check_gsp_for_validity_and_saturation().
-#' badL <- prep_gsp_for_hap_dropping(bad)
-#' }
+#' badL <- tryCatch(
+#'   prep_gsp_for_hap_dropping(bad),
+#'   error = function(x) 0,
+#'   warning = function(x) 0
+#' )
+#'
 #'
 check_gsp_for_validity_and_saturation <- function(GP) {
   WARN <- FALSE

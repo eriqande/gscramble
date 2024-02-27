@@ -30,7 +30,8 @@
 #' # check it for inbreeding. (There is none)
 #' check_pedigree_for_inbreeding(GP)
 #'
-#' \dontrun{
+#' ## This one will fail, so we wrap it in tryCatch so CRAN
+#' ## check doesn't find it a problem.
 #' # To see what happens if there are inbreeding loops, make some
 #' GP_inbred <-  GP
 #' # make 12 be inbred trough individual 6
@@ -39,7 +40,11 @@
 #' GP_inbred$`8`$par2$par = "4"
 #'
 #' # now try that:
-#' check_pedigree_for_inbreeding(GP_inbred)
+#' tryCatch(
+#'   check_pedigree_for_inbreeding(GP_inbred),
+#'   error = function(x) 0,
+#'   warning = function(x) 0
+#' )
 #'
 #' }
 check_pedigree_for_inbreeding <- function(GP) {

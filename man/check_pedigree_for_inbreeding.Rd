@@ -33,24 +33,3 @@ way the ancestry vectors are in my package CKMRpop---for simplicity
 I just get a list of ancestors in whatever order they happen to be
 reached.
 }
-\examples{
-# get the 13 member pedigree in the data object GSP and
-# turn it into a list
-GP <- prep_gsp_for_hap_dropping(GSP)
-
-# check it for inbreeding. (There is none)
-check_pedigree_for_inbreeding(GP)
-
-\dontrun{
-# To see what happens if there are inbreeding loops, make some
-GP_inbred <-  GP
-# make 12 be inbred trough individual 6
-GP_inbred$`12`$par1$par = "13"
-# make 8 inbred (because both of its founder parents are the same!)
-GP_inbred$`8`$par2$par = "4"
-
-# now try that:
-check_pedigree_for_inbreeding(GP_inbred)
-
-}
-}
