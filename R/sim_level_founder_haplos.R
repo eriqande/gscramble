@@ -52,8 +52,9 @@ sim_level_founder_haplos <- function(S) {
   problemos <- tmp %>%
     filter(rs_founder_haplo != 1:n())
   if(nrow(problemos) > 0) {
+    # get the row numbers where it is not correct
     warning("Bad news!  rs_founder_haplos are not dense within group_origin, gpp, and index!")
-    print(problemos)
+    warning("Problematic rs_founder_haplos values include: ", paste(unique(sort(problemos$rs_founder_haplo)), collapse = ", "))
     stop("Bailing out!")
   }
 

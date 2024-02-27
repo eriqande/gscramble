@@ -45,8 +45,6 @@
 #'   error = function(x) 0,
 #'   warning = function(x) 0
 #' )
-#'
-#' }
 check_pedigree_for_inbreeding <- function(GP) {
 
   # x is the ID on an individual in the pedigree
