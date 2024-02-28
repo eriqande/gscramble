@@ -5,6 +5,8 @@ gscramble
 
 [![check-standard](https://github.com/eriqande/gscramble/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/eriqande/gscramble/actions/workflows/check-standard.yaml)
 [![pkgdown](https://github.com/eriqande/gscramble/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/eriqande/gscramble/actions/workflows/pkgdown.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gscramble)](https://CRAN.R-project.org/package=gscramble)
 <!-- badges: end -->
 
 This is an R package for simulating individuals that are admixed between
