@@ -6,20 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A first tutorial for 'gscramble' • gscramble</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="A first tutorial for 'gscramble'">
-<meta property="og:description" content="gscramble">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -45,7 +44,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
@@ -68,7 +67,7 @@
 <li>
   <a href="https://github.com/eriqande/gscramble/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul>
@@ -79,7 +78,7 @@
 </div>
 <!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
@@ -87,7 +86,7 @@
       <h1 data-toc-skip>A first tutorial for ‘gscramble’</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/eriqande/gscramble/blob/HEAD/vignettes/gscramble-tutorial.Rmd" class="external-link"><code>vignettes/gscramble-tutorial.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/eriqande/gscramble/blob/master/vignettes/gscramble-tutorial.Rmd" class="external-link"><code>vignettes/gscramble-tutorial.Rmd</code></a></small>
       <div class="hidden name"><code>gscramble-tutorial.Rmd</code></div>
 
     </div>
@@ -98,11 +97,11 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/eriqande/gscramble" class="external-link">gscramble</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.4     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.5</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.1</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.5.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.3     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.1</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.2     </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.2.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.2.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.6.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 4.0.3     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.3.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.5     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.2</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.2.2     </span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
@@ -151,15 +150,22 @@ Smyser et al. (2020), and is available at <a href="https://datadryad.org/stash/
 <div class="section level3">
 <h3 id="matrix-of-genotype-data--geno">Matrix of genotype data. <code>Geno</code><a class="anchor" aria-label="anchor" href="#matrix-of-genotype-data--geno"></a>
 </h3>
-<p>The genotype data must be provided in a matrix. If there are <span class="math inline">\(N\)</span> individuals and <span class="math inline">\(L\)</span> loci in the diploid species, this
-matrix has <span class="math inline">\(N\)</span> rows and <span class="math inline">\(2L\)</span> columns. Each locus gets two adjacent
-columns (one allele in each column) and each individual gets one row.
-For example, in the first row and first column <code>Geno[1,1]</code> is
-the first allele for the first locus for the first individual. In the
-first row and second column <code>Geno[1,2]</code> is the second allele
-for the first locus for the first individual. In the first row and third
-column <code>Geno[1,3]</code> is the first allele at the second locus
-for the first individual, and so on.</p>
+<p>The genotype data must be provided in a matrix. If there are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+individuals and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>
+loci in the diploid species, this matrix has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+rows and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>L</mi></mrow><annotation encoding="application/x-tex">2L</annotation></semantics></math>
+columns. Each locus gets two adjacent columns (one allele in each
+column) and each individual gets one row. For example, in the first row
+and first column <code>Geno[1,1]</code> is the first allele for the
+first locus for the first individual. In the first row and second column
+<code>Geno[1,2]</code> is the second allele for the first locus for the
+first individual. In the first row and third column
+<code>Geno[1,3]</code> is the first allele at the second locus for the
+first individual, and so on.</p>
 <p>The names/IDs of the individuals must be included as the the rownames
 of the matrix of genotypes.</p>
 <p>Here is an example of the first 6 loci for the first 4 individuals
@@ -390,7 +396,7 @@ through the hybridization of individuals from two populations). We then
 show the tibble representation of that same GSP and discuss the
 structure of a GSP in light of those two pieces of information.
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/F1-500.png" alt="**A Simple GSP.** Here we have a pedigree with  diploid founder '1', who is formed by the union of two gametes from Population A, and diploid founder '2' with two gametes from Population B. Founder '1' and founder '2' then pass 2 gametes (red 2's) for the formation of 2 individuals represented by their descendant 'box 3'. The pink hexagon 's3' then represents the samples taken from 'box 3' with the pink 2 used to indicate the number of diploid individuals sampled." width="50%"><p class="caption">
+<img src="../reference/figures/F1-500.png" class="r-plt" alt="**A Simple GSP.** Here we have a pedigree with  diploid founder '1', who is formed by the union of two gametes from Population A, and diploid founder '2' with two gametes from Population B. Founder '1' and founder '2' then pass 2 gametes (red 2's) for the formation of 2 individuals represented by their descendant 'box 3'. The pink hexagon 's3' then represents the samples taken from 'box 3' with the pink 2 used to indicate the number of diploid individuals sampled." width="50%"><p class="caption">
 <strong>A Simple GSP.</strong> Here we have a pedigree with diploid
 founder ‘1’, who is formed by the union of two gametes from Population
 A, and diploid founder ‘2’ with two gametes from Population B. Founder
@@ -514,7 +520,7 @@ generate backcrossed hybrids. Note that these simulated F1B1s and F1BC2
 are different than hybrids formed from Pop1-Pop2 F1s that are
 backcrossed to Pop2. Here is a picture of what this example would look
 like:</p>
-<p><img src="../reference/figures/13.svg" width="100%" style="display: block; margin: auto;"></p>
+<p><img src="../reference/figures/13.svg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>If we are interested in F1 hybrids between Pop 1 and each of the
 other populations (Pop2, Pop3, or Pop4), as well as two generations of
 backcrossing to each of those populations, we can use a
@@ -550,7 +556,7 @@ hybridization:</p>
 <p>The package data object <code>GSP</code> shows an example of a genome
 simulation pedigree with 13 members. Here is a picture of what it looks
 like:</p>
-<p><img src="../reference/figures/13-member-ped.svg" width="100%" style="display: block; margin: auto;"></p>
+<p><img src="../reference/figures/13-member-ped.svg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Note, you can produce this type of plot using the
 <code><a href="../reference/gsp2dot.html">gsp2dot()</a></code> function in the ‘gscramble’ package, as follows,
 but it requires the installation of the GraphViz <code>dot</code>
@@ -596,7 +602,7 @@ and D. The tibble is available in the package data object
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/gsp4.csv"</span>, package <span class="op">=</span> <span class="st">"gscramble"</span><span class="op">)</span></span></code></pre></div>
 <p>Here is what it looks like:</p>
-<p><img src="../reference/figures/gsp4-700.png" width="70%" style="display: block; margin: auto;"></p>
+<p><img src="../reference/figures/gsp4-700.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="mapping-populationscollections-to-founding-populations--reppop">Mapping populations/collections to founding populations.
@@ -632,10 +638,13 @@ founders of the pedigree—you can specify that by doing multiple
 replicates of the procedure as defined in the <code>index</code> column.
 The <code>index</code> column must be of type integer, and it must
 include all values from 1 up to the number of simulation replicates
-desired. Rows with the same value, <span class="math inline">\(i\)</span>, say, of <code>index</code> give the
-desired mappings from founding pops (“A”, “B”, etc) in the GSP to
-different groups in the genotype data for the <span class="math inline">\(i^{\mathrm{th}}\)</span> replicates of the
-simulation.</p>
+desired. Rows with the same value,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
+say, of <code>index</code> give the desired mappings from founding pops
+(“A”, “B”, etc) in the GSP to different groups in the genotype data for
+the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>i</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi></mrow></msup><annotation encoding="application/x-tex">i^{\mathrm{th}}</annotation></semantics></math>
+replicates of the simulation.</p>
 <p>Each different replicate is made by drawing genetic material
 <em>without replacement</em> from the genotypes (<code>Geno</code> in
 the example data) and placing that genetic material into the founders of
@@ -644,7 +653,11 @@ founders of the GSP is always done without replacement within the
 specification of a particular RepPop. (Thus, for example, if you have
 indexes from 1 to 20, with each one mapping three A founders to
 individuals in Pop1 and four B founders to individuals in Pop2, then you
-will need to have genotypes from at least <span class="math inline">\(20\times 3\)</span> individuals in Pop1 and <span class="math inline">\(20\times 4\)</span> individuals in Pop2).</p>
+will need to have genotypes from at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">20\times 3</annotation></semantics></math>
+individuals in Pop1 and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>×</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">20\times 4</annotation></semantics></math>
+individuals in Pop2).</p>
 <p>An example might help. Suppose that we wish to do a simulation with
 the pedigree in <code>GSP</code> (13 individuals, 6 of which are
 founders: 3 from population “A” and 3 from population “B”). For the
@@ -824,7 +837,7 @@ columns and then the second half.</p>
 <h3 id="visualizing-those-chunks-of-genome">Visualizing those chunks of genome<a class="anchor" aria-label="anchor" href="#visualizing-those-chunks-of-genome"></a>
 </h3>
 <p>Let’s glance at the gspComplex (also illustrated above):</p>
-<p><img src="../reference/figures/13.svg" width="100%" style="display: block; margin: auto;"></p>
+<p><img src="../reference/figures/13.svg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>For convenience, we built a function called
 <code>plot_simulated_chromosome_segments()</code> that let’s you quickly
 visualize the results. Let’s try it here. By adding the RecRates to the
@@ -832,8 +845,15 @@ function call, we get little sparklines showing us the recombination
 rates across the chromosomes.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_simulated_chromomsome_segments.html">plot_simulated_chromomsome_segments</a></span><span class="op">(</span><span class="va">Segments</span>, <span class="va">RecRates</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please use `linewidth` instead.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The deprecated feature was likely used in the <span style="color: #0000BB;">gscramble</span> package.</span></span>
+<span><span class="co">#&gt;   Please report the issue at <span style="color: #0000BB; font-style: italic;">&lt;https://github.com/eriqande/gscramble/issues&gt;</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">This warning is displayed once per session.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">generated.</span></span></span>
 <span><span class="va">g</span></span></code></pre></div>
-<p><img src="gscramble-tutorial_files/figure-html/unnamed-chunk-31-1.png" width="720"></p>
+<p><img src="gscramble-tutorial_files/figure-html/unnamed-chunk-31-1.png" class="r-plt" alt="" width="720"></p>
 <p>As you can see, Individual #5 (F1 specified in the GSP above)
 represents full chromosomes from Pop1 and Pop2, without recombination,
 at each of the 3 chromosomes included in the example data. As described
@@ -1025,7 +1045,7 @@ tibbles for each of those genomic permutation pedigrees.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_simulated_chromomsome_segments.html">plot_simulated_chromomsome_segments</a></span><span class="op">(</span><span class="va">Segments</span>, <span class="va">RecRates</span><span class="op">)</span></span>
 <span><span class="va">g</span></span></code></pre></div>
-<p><img src="gscramble-tutorial_files/figure-html/unnamed-chunk-38-1.png" width="720"></p>
+<p><img src="gscramble-tutorial_files/figure-html/unnamed-chunk-38-1.png" class="r-plt" alt="" width="720"></p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Markers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/segments2markers.html">segments2markers</a></span><span class="op">(</span></span>
 <span>  Segs <span class="op">=</span> <span class="va">Segments</span>,</span>
@@ -1104,17 +1124,15 @@ are gzipped with the <code>.gz</code> extension.</p>
 <span>  Geno <span class="op">=</span> <span class="va">Markers</span><span class="op">$</span><span class="va">ret_geno</span>,</span>
 <span>  prefix <span class="op">=</span> <span class="va">tfile</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; pedfile written to /tmp/RtmpTl7JdY/file1cdb19271c.ped</span></span>
-<span><span class="co">#&gt; mapfile written to /tmp/RtmpTl7JdY/file1cdb19271c.map</span></span>
+<span><span class="co">#&gt; pedfile written to /tmp/RtmpgpTgvG/file1f233848a445.ped</span></span>
+<span><span class="co">#&gt; mapfile written to /tmp/RtmpgpTgvG/file1f233848a445.map</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 
@@ -1127,16 +1145,16 @@ are gzipped with the <code>.gz</code> extension.</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer>
 </div>
 
-  
 
 
-  
+
+
 
   </body>
 </html>
