@@ -5,29 +5,23 @@
     + 0 errors | 0 warnings | 0 notes
 
 * Using GitHub Actions
-  - macOS 12.7.1 21G920, R 4.3.2
+  - macOS macOS Sequoia 15.7.7, R 4.6.1
     + 0 errors | 0 warnings | 0 notes
-  - ubuntu latest (22.04.3), devel, using R Under development (unstable) (2024-02-05 r85863)
+  - ubuntu latest (24.04.4), devel, using R Under development (unstable) (2026-06-21 r90185)
     + 0 errors | 0 warnings | 0 notes
-  - ubuntu latest (22.04.3), release, using R  4.3.2 (2023-10-31)
+  - ubuntu latest (24.04.4), release, using R  4.6.1 (2026-06-24)
     + 0 errors | 0 warnings | 0 notes
-  - ubuntu latest (22.04.3), old-rel1, using R 4.2.3 (2023-03-15)
+  - ubuntu latest (24.04.1), old-rel1, using R 4.5.3 (2026-03-11)
     + 0 errors | 0 warnings | 0 notes
-  - windows latest (Microsoft Windows Server 2022 10.0.20348)  using R 4.3.2 (2023-10-31 ucrt)
+  - windows latest (Windows Server 2022 x64 (build 26100))  using 4.6.1 (2026-06-24 ucrt)
     + 0 errors | 0 warnings | 0 notes
 
 
-* check_win()
-  - devel
+* check_win_devel()
+  - devel: R Under development (unstable) (2026-06-29 r90199 ucrt)
     + 0 errors | 0 warnings | 1 note
-      - NOTE = first submission to CRAN
-  - release
-    + 0 errors | 0 warnings | 1 note
-      - NOTE = first submission to CRAN
-  - oldrelease
-    + 0 errors | 0 warnings | 1 note
-      - NOTE = first submission to CRAN
-
+      - NOTE = Maintainer email has changed.  That is why I am submitting this. 
+               My old @noaa address is defunct.
 
 
 ## Downstream dependencies
